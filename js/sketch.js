@@ -47,8 +47,10 @@ function setup() {
   // output img container
   outputImgContainer = createImg('images/loading.gif', 'image');
   outputImgContainer.parent('output-img-container');
-
+   
   allowFirefoxGetCamera();
+	
+
 }
 
 // A function to be called when the model has been loaded
@@ -74,6 +76,16 @@ function predictImg(modelName) {
   outputImg = ml5.array3DToImage(outputImgData);
   outputImgContainer.elt.src = outputImg.src;
   isLoading = false;
+	$('#output-img-container-download').empty();
+	$('#output-img-container1').empty();
+	$('#output-img-container1-download').empty();
+	$('#output-img-container2').empty();
+	$('#output-img-container2-download').empty();
+	$('#output-img-container img').clone().appendTo('#output-img-container-download');
+	$('#output-img-container img').clone().appendTo('#output-img-container1');
+	$('#output-img-container img').clone().appendTo('#output-img-container1-download');
+	$('#output-img-container img').clone().appendTo('#output-img-container2');
+	$('#output-img-container img').clone().appendTo('#output-img-container2-download');
 }
 
 function draw() {
@@ -174,6 +186,8 @@ function isSafari() {
     }
   }
 }
+
+
 
 /**
 * @param imgData Array3D containing pixels of a img

@@ -2,6 +2,18 @@ ul {
     list-style: none;
 }
 
+.tx-10{
+    font-size: 10px;
+}
+
+.ptx-10{
+    line-height: 80%;
+}
+
+.listing-post-info{
+	min-height: 200px;
+}
+
 .top-links{
     transition: all .5s ease-in-out;
     position: fixed;
@@ -47,24 +59,44 @@ ul {
     left: -100%;
 }
 
+
 .generic-item-info {
-    min-height: 160px;
+    min-height: 220px;
     padding: 0 15px;
 }
 
+.generic-item-info h4{
+	height: 50px;
+}
+
+.generic-item-info p.caption {
+	height: 90px;
+}
+
+
 .generic-title-box {
     padding: 15px;
-    height: 460px;
+    height: 541px;
 }
 
 .signature-item-info{
     min-height: 200px;
     padding: 0 15px;
 }
+/*whatshot caption*/
+.blog-name-right p{
+	height: 60px;
+}
 
 .disable{
    cursor: not-allowed;
    pointer-events: none;
+}
+
+.disable_a{
+   cursor: not-allowed;
+   pointer-events: none;
+	background: #e0e0e0;
 }
 
 .mt--50 {
@@ -73,6 +105,58 @@ ul {
 
 .mega-menu .menu-logo > li > a {
     padding: 5px 0;
+}
+
+.sub-menu .isotope-filters button {
+	border: 0;
+}
+
+.mega-menu.desktopTopFixed .menu-list-items {
+	box-shadow: inset 0 -1px 0 0 #dadce0;
+	
+	
+}
+.sub-menu {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+/*	border-bottom: 1px #000 solid;*/
+	position: fixed;
+	width: 100%;
+	z-index: 998;
+	background: #fff;
+}
+.sub-menu .isotope-filters button:hover,
+.sub-menu .isotope-filters button.active{
+	background: none;
+	color: #84ba3f;
+}
+
+.owl-carousel .owl-dots{
+	position: absolute;
+    bottom: 5px;
+	margin: 0;
+}
+
+#home-slider .item {
+	background-size: 100% auto;
+	background-position: center;
+}
+
+.blog-overlay:before{
+	bottom: 0;
+	height: 50px;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.blog-overlay .blog-name {
+	bottom: 10px;
+}
+
+.digit-demo-container .col-lg-5{
+	position: inherit;
+}
+
+.digit-demo-container .nice-select {
+	float: inherit;
 }
 
 @media (min-width: 767px){
@@ -95,8 +179,15 @@ ul {
     nav#menu.desktopTopFixed {
     min-height: 50px;
 }
+
 }
 
+@media (max-width:800px) {
+	#home-slider .item {
+	background-size: auto 100%;
+	background-position: center;
+}
+}
 
 @media (min-width: 993px) {
     .hideindesktop{
@@ -104,9 +195,24 @@ ul {
     }
     
 }
+/*some screen*/
 @media (max-width: 992px) {
     .showindesktoponly{
         display: none !important;
     }
+	
+	.isotope-filters button{
+		border: 0;
+	}
+	
+	.isotope-filters button.active, .isotope-filters button:hover {
+    	background: none;
+    	color: #84ba3f;
+		border: 0;
+}
+	.digit-demo-container .col-lg-5 button {
+		width: 100%;
+	}
+	
     
 }
