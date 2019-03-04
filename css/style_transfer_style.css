@@ -145,7 +145,7 @@ input[type="file"] {
     padding: 8px 15px;
 }
 
-.mg-200 {
+.mg-250 {
     margin: -250px;
 }
 
@@ -169,5 +169,13 @@ input[type="file"] {
 @media (max-width: 992px) {
     .owl-carousel .owl-nav .owl-next, .owl-carousel .owl-nav .owl-prev {
     display: none;
+	}
 }
+
+@media (min-width: 992px) {
+/*
+	.output-container {
+		height: 500px;
+	}
+*/
 }

@@ -159,6 +159,15 @@ ul {
 	float: inherit;
 }
 
+.menu-logo h3{
+	font-size: 24px;
+}
+
+.menu-logo img{
+	width: auto;
+	height: auto;
+}
+
 @media (min-width: 767px){
 .dt-mt--50 {
     margin-top: -50px !important;
@@ -212,6 +221,10 @@ ul {
 }
 	.digit-demo-container .col-lg-5 button {
 		width: 100%;
+	}
+	
+	.mega-menu .menu-logo > li {
+		width: auto;
 	}
 	
     

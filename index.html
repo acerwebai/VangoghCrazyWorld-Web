@@ -126,7 +126,7 @@ img {
   <div class="container">
     <div class="row">
     
-     <div class="col-lg-6 col-md-12 input-container">
+     <div class="col-lg-4 col-md-12 input-container">
      <div class="pt-50 pb-30">
          <button type="button" class="button btn-circle mr-10 disable">1</button>
          Select photo or video
@@ -143,14 +143,14 @@ img {
               <a class="nav-link" id="webcam-tab" data-toggle="tab" href="#webcam" role="tab" aria-controls="portfolio-04" aria-selected="false">Webcam</a>
             </li>
           </ul>
-          <div class="tab-content pb-20" id="example-tab">
-            <div class="tab-pane fade active show" id="example" role="tabpanel" aria-labelledby="example-tab">
+          <div class="tab-content pb-50" id="example-tab">
+            <div class="tab-pane fade active show pb-40" id="example" role="tabpanel" aria-labelledby="example-tab">
 <!--    <h3 class="title text-center">INPUT</h3>-->
     <div class="center-container"  style="opacity: 0;">
       <img id="input-img" src='images/taipei101.jpg'/>
 <!--      <div id="input-source" class="reverse-img"></div>-->
     </div>
-    <div class="mg-200"></div>
+    <div class="mg-250"></div>
     
     <div class="style-container1 row">
       <div class="container1 col-4">
@@ -216,8 +216,8 @@ img {
            
             <div class="tab-pane fade" id="upload" role="tabpanel" aria-labelledby="upload-tab">
                <div class="center-container">
-<!--                  <img id="input-img1" src='images/girlwithpearl.jpg'/>-->
-<!--                  <div id="input-source1" class="reverse-img"></div>-->
+                  <img id="input-img1" src='images/taipei101.jpg'/>
+                  <div id="input-source1" class="reverse-img"></div>
                 </div>
 <!--                <div class="mg-200"></div>-->
                 
@@ -231,7 +231,7 @@ img {
             
             <div class="tab-pane fade" id="webcam" role="tabpanel" aria-labelledby="webcam-tab">
                     <div class="center-container">
-                      <img id="input-img2" src='images/girlwithpearl.jpg'/>
+                      <img id="input-img2" src='images/taipei101.jpg'/>
                       <div id="input-source2" class="reverse-img"></div>
                     </div>
                  <div class="style-container">
@@ -247,16 +247,16 @@ img {
     </div>
     
 
-  <div id="learning-container" class="col-lg-6 col-md-12">
+  <div id="learning-container" class="col-lg-4 col-md-12">
     <div class="pt-50 pb-30">
          <button type="button" class="button btn-circle mr-10 disable">2</button>
          Choose style
      </div>
-     <div class="mg-200"></div>
+     <div class="mg-250"></div>
     <div class="center-container" style="opacity: 0;position: relative; z-index: -100;">
       <img id="style-img" src='images/starrynight.jpg' width="0" height="0">
     </div>
-    <div class="border pd-20 pt-60 xs-pt-40 min-h-320">
+    <div class="border pd-20 pt-60 xs-pt-40 pb-90 min-h-320">
         <div class="style-container1 row">
           <div class="container1 col-4">
             <a class="imageAnchor" href="#" autofocus>
@@ -311,6 +311,52 @@ img {
     </div>
   </div>
 
+
+     <div class="col-lg-4 col-md-12 input-container">
+     <div class="pt-50 pb-30">
+         <button type="button" class="button btn-circle mr-10 disable">3</button>
+         Result
+     </div>
+      <div class="tab tab-border ">
+        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active show" id="home-04-tab" data-toggle="tab" href="#result1" role="tab" aria-controls="example" aria-selected="true">Lower</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-04-tab" data-toggle="tab" href="#result2" role="tab" aria-controls="upload" aria-selected="false">Medium</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="webcam-tab" data-toggle="tab" href="#result3" role="tab" aria-controls="portfolio-04" aria-selected="false">Higher</a>
+            </li>
+          </ul>
+          <div class="tab-content pb-20" id="example-tab">
+            
+          <div class="tab-pane fade active show" id="result1" role="tabpanel" aria-labelledby="example-tab">
+			<div id="output-img-container"></div>
+			 <div class="style-container">
+				<button class="button btn-block mb-10" onclick="onPredictClick()">Transfer</button>
+			</div>
+     	</div>
+           
+            <div class="tab-pane fade" id="result2" role="tabpanel" aria-labelledby="upload-tab">
+			<div id="output-img-container1"></div>
+			 <div class="style-container">
+				<button class="button btn-block mb-10" onclick="onPredictClick()">Transfer</button>
+			</div>
+            </div>
+            
+            
+            <div class="tab-pane fade" id="result3" role="tabpanel" aria-labelledby="webcam-tab">
+			<div id="output-img-container2"></div>
+			 <div class="style-container">
+				<button class="button btn-block mb-10" onclick="onPredictClick()">Transfer</button>
+			</div>
+          </div> 
+      </div>
+     
+    </div>
+    
+<!--
   <div class="output-container col-lg-4 col-md-12">
         <div class="pt-20 pb-20">
          <button type="button" class="button btn-circle mr-10 disable">3</button>
@@ -319,33 +365,21 @@ img {
      <div class="border pd-20 min-h-320">
        
 
-<!--             <button type="button" class="button btn-lg" data-toggle="modal" data-target="#myModal">-->
+             <button type="button" class="button btn-lg" data-toggle="modal" data-target="#myModal">
               <div id="output-img-container"></div>
-<!--            </button>-->
+            </button>
      
          <div class="style-container">
-         <div class="row">
-         	<div class="col-lg-6"><button class="button btn-block mb-10" onclick="onPredictClick()">Transfer</button></div>
-         	<div class="col-lg-6"><button class="button btn-block" data-toggle="modal" data-target="#myModal">Download</button></div>
-         </div>
+        
+         	<button class="button btn-block mb-10" onclick="onPredictClick()">Transfer</button>
+
         </div>
-        
-        <!--             Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" >
-              <div class="modal-dialog" role="document">
-                <div id="modal-content" class="modal-content pt-20 text-center">
-					<div id="output-img-container-download"></div>
-                 
-                  <div class="modal-footer">
-                    <button type="button" class="button gray" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-        
+  
     </div>
   </div>
+-->
    
+<!--
     <div class="output-container col-lg-4 col-md-12">
      <div class="border mt-90 pd-20 min-h-320">
       <div id="output-img-container1"></div>
@@ -356,7 +390,6 @@ img {
          </div>
         </div>
         
-                <!--             Modal -->
             <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" >
               <div class="modal-dialog" role="document">
                 <div id="modal-content" class="modal-content pt-20 text-center">
@@ -382,7 +415,6 @@ img {
          </div>
         </div>
         
-                <!--             Modal -->
             <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" >
               <div class="modal-dialog" role="document">
                 <div id="modal-content" class="modal-content pt-20 text-center">
@@ -397,10 +429,11 @@ img {
     </div>
   </div>
     
+-->
     
     </div>
-         <div class="row mt-90">             
-     	<div class="col-lg-12 mt-10 tx-10">
+         <div class="row mt-10">             
+     	<div class="col-lg-12 mt-20 tx-10">
             <h6>PHOTO ATTRIBUTION</h6>
             <p class="l-height-10"><a href="https://ccsearch.creativecommons.org/photos/1e7c0dd5-ff62-49f0-ba0e-b263a0253dfc" target="_blank">
                 "Taipei 101 Fireworks 2017" by Sinchen.Lin is licensed under CC BY 2.0</a></p>
@@ -561,11 +594,14 @@ img {
 <script>var plugin_path = 'js/';</script>
  
 <!-- REVOLUTION JS FILES -->
+<!--
 <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
 <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+-->
 
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-<script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<!--<script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>-->
+<!--
 <script src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
 <script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
 <script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
@@ -574,26 +610,27 @@ img {
 <script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
 <script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
 <script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+-->
 <!-- revolution custom --> 
-<script src="revolution/js/revolution-custom.js"></script> 
+<!--<script src="revolution/js/revolution-custom.js"></script> -->
 
 <!-- custom -->
 <script src="js/custom.js"></script>
 <script>
-$(document).ready( function() {
-	let out = ['#output-img-container','#output-img-container1','#output-img-container2'];
-	
-	for (var i=0; i<3; i++) {
-		$(out[i]).hover(
-			function() {
-				$(this).animate({ 'zoom': 1.2 }, 400);
-			},
-			function() {
-				$(this).animate({ 'zoom': 1 }, 400);
-			});
-	}
-	
-});
+//$(document).ready( function() {
+//	let out = ['#output-img-container','#output-img-container1','#output-img-container2'];
+//	
+//	for (var i=0; i<3; i++) {
+//		$(out[i]).hover(
+//			function() {
+//				$(this).animate({ 'zoom': 1.2 }, 400);
+//			},
+//			function() {
+//				$(this).animate({ 'zoom': 1 }, 400);
+//			});
+//	}
+//	
+//});
 </script>
 </body>
 </html>
