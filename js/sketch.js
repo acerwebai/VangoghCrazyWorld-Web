@@ -127,8 +127,8 @@ function gotNewInputImg() {
      inputImg1.elt.src = newImgUrl
   //   console.log("newImgUrl = "+newImgUrl);
      inputImg.elt.src = newImgUrl;
-     inputImg.elt.style.height='480px';
      inputImg.elt.style.width='480px';
+     inputImg.elt.style.height='480px';
   }
 }
 
