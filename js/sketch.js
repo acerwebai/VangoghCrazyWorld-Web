@@ -118,7 +118,7 @@ function updateInputImg(ele) {
 function uploadImg() {
     uploader.click();
     if (webcam) deactiveWebcam();
-    if (currentModel) transferImg();
+   // if (currentModel) transferImg();
 }
 
 function gotNewInputImg() {
