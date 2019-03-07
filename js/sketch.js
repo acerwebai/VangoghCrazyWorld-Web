@@ -123,7 +123,7 @@ function uploadImg() {
 
 function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
-     let newImgUrl = window.URL.createObjectURL(uploader.files[0]);
+     var newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
      inputImg.elt.src = newImgUrl;
      console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
