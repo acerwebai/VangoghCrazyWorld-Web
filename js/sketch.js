@@ -120,12 +120,12 @@ function uploadImg() {
 
 function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
-      let newImgUrl = window.URL.createObjectURL(uploader.files[0]);
-      setTimeout(() => {
-          console.log("newImgUrl = "+newImgUrl + "uploader files = "+ uploader.files[0]+":"+uploader.files[1]);
-     }, 2000);
+     let newImgUrl = window.URL.createObjectURL(uploader.files[0]);
+  //    setTimeout(() => {
+  //        console.log("newImgUrl = "+newImgUrl + "uploader files = "+ uploader.files[0]+":"+uploader.files[1]);
+  //   }, 2000);
      inputImg1.elt.src = newImgUrl
-     console.log("newImgUrl = "+newImgUrl);
+  //   console.log("newImgUrl = "+newImgUrl);
      inputImg.elt.src = newImgUrl;
   }
 }
