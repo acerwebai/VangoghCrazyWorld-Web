@@ -44,7 +44,7 @@ function modelLoaded() {
     
     var d = new Date();
     var t1 = d.getTime();
-    nets.transfer(inputImg.elt, function (err, result) {
+    nets.transfer(inputImg.elt.src, function (err, result) {
         console.log('result:'+result + 'err:'+err);
         outputImgContainer.elt.src = result.src;
         var d2 = new Date();
