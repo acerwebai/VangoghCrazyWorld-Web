@@ -125,7 +125,7 @@ function gotNewInputImg() {
           console.log("newImgUrl = "+newImgUrl + "uploader files = "+ uploader.files[0]);
      }, 2000);
      inputImg1.elt.src = newImgUrl.src
-     console.log("newImgUrl = "+newImgUrl);
+     console.log("newImgUrl.src = "+newImgUrl.src);
      inputImg.elt.src = newImgUrl.src;
   }
 }
