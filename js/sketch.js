@@ -54,8 +54,8 @@ function modelLoaded() {
         var t2 = d2.getTime();
         console.log("inference time = " + (t2 - t1) + "ms");
     });
-    inputImg.elt.style.width = '250px';
-    inputImg.elt.style.height = '250px';
+   // inputImg.elt.style.width = '250px';
+   // inputImg.elt.style.height = '250px';
 }
 
 function transferImg() {
@@ -114,7 +114,7 @@ function updateInputImg(ele) {
   if (webcam) deactiveWebcam();
   if (ele.src) {
     inputImg.elt.src = ele.src;
-    inputImage=ele.src;
+    inputImage.src=ele.src;
   }
   if (currentModel) transferImg();
 }
@@ -129,7 +129,7 @@ function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
      let newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
-     inputImage=newImgUrl;
+     inputImage.src=newImgUrl;
      //inputImg.elt.src = newImgUrl;
      console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
      console.log("inputImage size:"+inputImage.width+"x"+inputImage.height);
