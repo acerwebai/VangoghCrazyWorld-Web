@@ -118,7 +118,7 @@ function updateInputImg(ele) {
 function uploadImg() {
     uploader.click();
     if (webcam) deactiveWebcam();
-    if (currentModel && inputImg1.elt.src) transferImg();
+    if (currentModel) transferImg();
 }
 
 function gotNewInputImg() {
@@ -127,7 +127,7 @@ function gotNewInputImg() {
      inputImg1.elt.src = newImgUrl;
      inputImg.elt.src = newImgUrl;
      console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
-     console.log("inputImage size:"+inputImg.width+"x"+inputImg.height);
+     console.log("inputImg size:"+inputImg.elt.width+"x"+inputImg.elt.height);
   }
 }
 
