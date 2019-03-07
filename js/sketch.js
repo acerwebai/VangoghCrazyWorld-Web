@@ -122,7 +122,7 @@ function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
       let newImgUrl = window.URL.createObjectURL(uploader.files[0]);
       setTimeout(() => {
-          console.log("newImgUrl = "+newImgUrl + "uploader files = "+ uploader.files[0]);
+          console.log("newImgUrl = "+newImgUrl.src + "uploader files = "+ uploader.files[0]);
      }, 2000);
      inputImg1.elt.src = newImgUrl.src
      console.log("newImgUrl.src = "+newImgUrl.src);
