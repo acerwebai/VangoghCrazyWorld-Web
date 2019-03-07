@@ -38,8 +38,8 @@ function setup() {
 function modelLoaded() {
     modelReady = true;
     outputImgContainer.removeClass('reverse-img');
-    inputImg.elt.style.width = '480px';
-    inputImg.elt.style.height = '480px';
+    inputImg.elt.width = '480px';
+    inputImg.elt.height = '480px';
     console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
     
     var d = new Date();
@@ -125,7 +125,6 @@ function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
      var newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
-     inputImg.elt.src = newImgUrl;
      inputImg.elt.src = newImgUrl;
      console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
      console.log("inputImg size:"+inputImg.elt.width+"x"+inputImg.elt.height);
