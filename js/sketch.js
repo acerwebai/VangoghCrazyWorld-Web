@@ -38,24 +38,21 @@ function setup() {
 function modelLoaded() {
     modelReady = true;
     outputImgContainer.removeClass('reverse-img');
-  //  inputImg.elt.style.width = '480px';
-  //  inputImg.elt.style.height = '480px';
-    inputImage.width='480px';
-    inputImage.height='480px';
-    //console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
-    console.log("image source:"+inputImage + " ; model_num :" +model_num);
-
+    inputImg.elt.style.width = '480px';
+    inputImg.elt.style.height = '480px';
+    console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
+    
     var d = new Date();
     var t1 = d.getTime();
-    nets.transfer(inputImage, function (err, result) {
+    nets.transfer(inputImg, function (err, result) {
         console.log('result:'+result + 'err:'+err);
         outputImgContainer.elt.src = result.src;
         var d2 = new Date();
         var t2 = d2.getTime();
         console.log("inference time = " + (t2 - t1) + "ms");
     });
-   // inputImg.elt.style.width = '250px';
-   // inputImg.elt.style.height = '250px';
+    inputImg.elt.style.width = '250px';
+    inputImg.elt.style.height = '250px';
 }
 
 function transferImg() {
@@ -114,7 +111,6 @@ function updateInputImg(ele) {
   if (webcam) deactiveWebcam();
   if (ele.src) {
     inputImg.elt.src = ele.src;
-    inputImage.src=ele.src;
   }
   if (currentModel) transferImg();
 }
@@ -122,17 +118,16 @@ function updateInputImg(ele) {
 function uploadImg() {
     uploader.click();
     if (webcam) deactiveWebcam();
-    if (currentModel) transferImg();
+    if (currentModel && inputImg1.elt.src) transferImg();
 }
 
 function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
      let newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
-     inputImage.src=newImgUrl;
-     //inputImg.elt.src = newImgUrl;
+     inputImg.elt.src = newImgUrl;
      console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
-     console.log("inputImage size:"+inputImage.width+"x"+inputImage.height);
+     console.log("inputImage size:"+inputImg.width+"x"+inputImg.height);
   }
 }
 
