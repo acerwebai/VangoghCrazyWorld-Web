@@ -124,9 +124,9 @@ function gotNewInputImg() {
       setTimeout(() => {
           console.log("newImgUrl = "+newImgUrl.src + "uploader files = "+ uploader.files[0]);
      }, 2000);
-     inputImg1.elt.src = newImgUrl.src
+     inputImg1.elt.src = newImgUrl
      console.log("newImgUrl.src = "+newImgUrl.src);
-     inputImg.elt.src = newImgUrl.src;
+     inputImg.elt.src = newImgUrl;
   }
 }
 
