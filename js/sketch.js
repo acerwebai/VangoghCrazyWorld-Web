@@ -63,6 +63,34 @@ function transferImg() {
     
 }
 
+function modelLoaded0() {
+  modelReady = true;
+  outputImgContainer.removeClass('reverse-img');
+  inputImg1.elt.style.width = '480px';
+  inputImg1.elt.style.height = '480px';
+  console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
+
+  var d = new Date();
+  var t1 = d.getTime();
+  nets.transfer(inputImg1, function (err, result) {
+      console.log('result:'+result + 'err:'+err);
+      outputImgContainer.elt.src = result.src;
+      var d2 = new Date();
+      var t2 = d2.getTime();
+      console.log("inference time = " + (t2 - t1) + "ms");
+  });
+  inputImg1.elt.style.width = '250px';
+  inputImg1.elt.style.height = '250px';
+}
+
+function transferImg0() {
+  if (webcam) deactiveWebcam();
+  console.log("transferImg");
+   
+  nets = new ml5.styleTransfer('models/' + currentModel + '/', modelLoaded0);
+  
+}
+
 function modelLoaded1() {
     outputImgContainer.addClass('reverse-img');
   //      modelReady = true;
@@ -116,19 +144,20 @@ function updateInputImg(ele) {
 function uploadImg() {
     uploader.click();
     if (webcam) deactiveWebcam();
+    if (currentModel) transferImg0();
 }
 
 function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
      let newImgUrl = window.URL.createObjectURL(uploader.files[0]);
-      setTimeout(() => {
-          inputImg1.elt.src = newImgUrl;
-          console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
-          inputImg.elt.src = newImgUrl;
-          console.log("inputImg size:"+inputImg.elt.width+"x"+inputImg.elt.height);
-     }, 8000);
-     //inputImg1.elt.src = newImgUrl;
-     //console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
+//      setTimeout(() => {
+//         inputImg1.elt.src = newImgUrl;
+//          console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
+//          inputImg.elt.src = newImgUrl;
+//          console.log("inputImg size:"+inputImg.elt.width+"x"+inputImg.elt.height);
+//     }, 8000);
+     inputImg1.elt.src = newImgUrl;
+     console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
      //inputImg.elt.src = newImgUrl;
      //console.log("inputImg size:"+inputImg.elt.width+"x"+inputImg.elt.height);
   }
