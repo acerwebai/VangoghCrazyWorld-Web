@@ -19,8 +19,8 @@ let isSafa = false;
 
 function setup() {
     inputImg = select('#input-img');
+    inputImg1 = select('#input-img1');
     styleImg = select('#style-img').elt;
-
 
     // Image uploader
     uploader = select('#uploader').elt;
@@ -88,10 +88,6 @@ function transferVideo() {
 }
 
 function draw() {
-    //    if (modelReady && webcam && video && video.elt && start) {
-    //        image(outputImgContainer, 0, 0, 250, 250);
-    // predictImg(currentModel);
-    //    }
 }
 
 
@@ -124,15 +120,13 @@ function uploadImg() {
 
 function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
-    //console.log("gotNewInputImg"+uploadImg.files[0]);
       let newImgUrl = window.URL.createObjectURL(uploader.files[0]);
-     // inputImg1.src = newImgUrl;
-     // inputImg1.show();
-     setTimeout(() => {
-      console.log("newImgUrl = "+newImgUrl);
+      setTimeout(() => {
+          console.log("newImgUrl = "+newImgUrl + "uploader files = "+ uploader.files[0]);
      }, 2000);
+     inputImg1.elt.src = newImgUrl.src
      console.log("newImgUrl = "+newImgUrl);
-      inputImg.elt.src = newImgUrl.src;
+     inputImg.elt.src = newImgUrl.src;
   }
 }
 
@@ -178,10 +172,10 @@ function onPredictClick1() {
   model_num=1;
   outputImgContainer.parent('output-img-container1');
   if (webcam) {
-      console.log('onpredictclick: video');
+      console.log('onpredictclick1: video');
       transferVideo();
   } else {
-      console.log('onpredictclick: img');
+      console.log('onpredictclick1: img');
       transferImg();
       //console.log('onpredictclick: img');
   }
@@ -192,10 +186,10 @@ function onPredictClick2() {
   model_num=2;
   outputImgContainer.parent('output-img-container2');
   if (webcam) {
-      console.log('onpredictclick: video');
+      console.log('onpredictclick2: video');
       transferVideo();
   } else {
-      console.log('onpredictclick: img');
+      console.log('onpredictclick2: img');
       transferImg();
       //console.log('onpredictclick: img');
   }
