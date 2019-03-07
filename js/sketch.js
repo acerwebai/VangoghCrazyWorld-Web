@@ -5,32 +5,20 @@ Fast Style Transfer Simple Demo
 */
 
 let nets, nets1;
-//let modelNames = ['Wheatfield_with_Crows', 'sien_with_a_cigar', 'Soup-Distribution', 'self-portrait', 'Red-Vineyards', 'la-campesinos', 'bedroom', 'Sunflowers-Bew', 'starrynight', 'Wheatfield_with_Crows-2', 'sien_with_a_cigar-2', 'Soup-Distribution-2', 'self-portrait-2', 'Red-Vineyards-2', 'la-campesinos-2', 'bedroom-2', 'Sunflowers-Bew-2', 'starrynight-2', 'Wheatfield_with_Crows-1', 'sien_with_a_cigar-1', 'Soup-Distribution-1', 'self-portrait-1', 'Red-Vineyards-1', 'la-campesinos-1', 'bedroom-1', 'Sunflowers-Bew-1', 'starrynight-1'];
 let inputImg, inputImg1, styleImg;
-let outputImgData;
-let outputImgData1;
-let outputImgData2;
-let outputImg;
-let outputImg1;
-let outputImg2;
-let modelNum = 0;
+let outputImgContainer;
 let model_num = 0;
 let currentModel = 'starrynight'; 
-let currentInitModel = 'starrynight';  //, currentModel1 = 'starrynight-1', currentModel2 = 'starrynight-2';
+let currentInitModel = 'starrynight';  
 let uploader;
-let uploader1;
 let webcam = false;
 let modelReady = false;
 let video;
-let style;
-let start = false;
 let isLoading = true;
 let isSafa = false;
 
 function setup() {
-    //    noCanvas();
     inputImg = select('#input-img');
-    //inputImg1 = select('#input-img1').elt;
     styleImg = select('#style-img').elt;
 
 
@@ -76,13 +64,9 @@ function transferImg() {
 }
 
 function modelLoaded1() {
-  //  modelNum++;
-    //console.log('modelloaded 2:' + inputImg.src);
     outputImgContainer.addClass('reverse-img');
-   // if (modelNum >= modelNames.length) {
-        modelReady = true;
-        nets1.transfer(gotResult);
-   // }
+  //      modelReady = true;
+    nets1.transfer(gotResult);
 }
 
 function gotResult(err, img) {
