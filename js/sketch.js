@@ -125,8 +125,9 @@ function gotNewInputImg() {
   //        console.log("newImgUrl = "+newImgUrl + "uploader files = "+ uploader.files[0]+":"+uploader.files[1]);
   //   }, 2000);
      inputImg1.elt.src = newImgUrl;
+     console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
      inputImg.elt.src = newImgUrl;
-     console.log("upload image size:"+inputImg.elt.width+"x"+inputImg.elt.height);
+     console.log("inputImg size:"+inputImg.elt.width+"x"+inputImg.elt.height);
   }
 }
 
