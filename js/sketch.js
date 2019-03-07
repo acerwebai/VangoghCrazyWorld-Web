@@ -5,7 +5,7 @@ Fast Style Transfer Simple Demo
 */
 
 let nets, nets1;
-let inputImg, inputImg1, styleImg;
+let inputImg, inputImg1, styleImg, inputImage;
 let outputImgContainer;
 let model_num = 0;
 let currentModel = 'starrynight'; 
@@ -38,13 +38,16 @@ function setup() {
 function modelLoaded() {
     modelReady = true;
     outputImgContainer.removeClass('reverse-img');
-    inputImg.elt.style.width = '480px';
-    inputImg.elt.style.height = '480px';
-    console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
+  //  inputImg.elt.style.width = '480px';
+  //  inputImg.elt.style.height = '480px';
+    inputImage.width='480px';
+    inputImage.height='480px';
+    //console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
+    console.log("image source:"+inputImage + " ; model_num :" +model_num);
 
     var d = new Date();
     var t1 = d.getTime();
-    nets.transfer(inputImg, function (err, result) {
+    nets.transfer(inputImage, function (err, result) {
         console.log('result:'+result + 'err:'+err);
         outputImgContainer.elt.src = result.src;
         var d2 = new Date();
@@ -109,7 +112,10 @@ function updateStyleImg(ele) {
 
 function updateInputImg(ele) {
   if (webcam) deactiveWebcam();
-  if (ele.src) inputImg.elt.src = ele.src;
+  if (ele.src) {
+    inputImg.elt.src = ele.src;
+    inputImage=ele.src;
+  }
   if (currentModel) transferImg();
 }
 
@@ -123,8 +129,10 @@ function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
      let newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
-     inputImg.elt.src = newImgUrl;
+     inputImage=newImgUrl;
+     //inputImg.elt.src = newImgUrl;
      console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
+     console.log("inputImage size:"+inputImage.width+"x"+inputImage.height);
   }
 }
 
