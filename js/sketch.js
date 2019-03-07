@@ -115,7 +115,8 @@ function updateStyleImg(ele) {
   if (ele.src) {
     styleImg.src = ele.src;
     currentInitModel = ele.id;
-    currentModel = ele.id;
+    if (model_num>0) currentModel = currentInitModel+'-'+String(model_num);
+    else currentModel=currentInitModel;
   }
     if (currentModel) {
         if (webcam) {
@@ -176,6 +177,7 @@ function deactiveWebcam() {
     
 function onPredictClick() {
   currentModel=currentInitModel;
+  model_num=0;
   outputImgContainer.parent('output-img-container');
     if (webcam) {
         console.log('onpredictclick: video');
@@ -189,6 +191,7 @@ function onPredictClick() {
 
 function onPredictClick1() {
   currentModel = currentInitModel + "-1";
+  model_num=1;
   outputImgContainer.parent('output-img-container1');
   if (webcam) {
       console.log('onpredictclick: video');
@@ -202,6 +205,7 @@ function onPredictClick1() {
 
 function onPredictClick2() {
   currentModel = currentInitModel + "-2";
+  model_num=2;
   outputImgContainer.parent('output-img-container2');
   if (webcam) {
       console.log('onpredictclick: video');
