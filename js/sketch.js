@@ -38,8 +38,8 @@ function setup() {
 function modelLoaded() {
     modelReady = true;
     outputImgContainer.removeClass('reverse-img');
-    inputImg.elt.width = '480px';
-    inputImg.elt.height = '480px';
+    inputImg.elt.style.width = '480px';
+    inputImg.elt.style.height = '480px';
     console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
     
     var d = new Date();
