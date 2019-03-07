@@ -126,7 +126,7 @@ function gotNewInputImg() {
           console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
           inputImg.elt.src = newImgUrl;
           console.log("inputImg size:"+inputImg.elt.width+"x"+inputImg.elt.height);
-     }, 2000);
+     }, 8000);
      //inputImg1.elt.src = newImgUrl;
      //console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
      //inputImg.elt.src = newImgUrl;
