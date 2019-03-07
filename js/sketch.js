@@ -125,7 +125,7 @@ function gotNewInputImg() {
   //        console.log("newImgUrl = "+newImgUrl + "uploader files = "+ uploader.files[0]+":"+uploader.files[1]);
   //   }, 2000);
      inputImg1.elt.src = newImgUrl
-  //   console.log("newImgUrl = "+newImgUrl);
+     console.log("newImgUrl = "+newImgUrl.width+'x'+newImgUrl.height);
      inputImg.elt.src = newImgUrl;
      inputImg.elt.style.width='480px';
      inputImg.elt.style.height='480px';
