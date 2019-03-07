@@ -124,11 +124,9 @@ function gotNewInputImg() {
   //    setTimeout(() => {
   //        console.log("newImgUrl = "+newImgUrl + "uploader files = "+ uploader.files[0]+":"+uploader.files[1]);
   //   }, 2000);
-     inputImg1.elt.src = newImgUrl
-     console.log("newImgUrl = "+inputImg1.elt.width+'x'+inputImg1.elt.height);
+     inputImg1.elt.src = newImgUrl;
      inputImg.elt.src = newImgUrl;
-     inputImg.elt.style.width='480px';
-     inputImg.elt.style.height='480px';
+     console.log("upload image size:"+inputImg.elt.width+"x"+inputImg.elt.height);
   }
 }
 
