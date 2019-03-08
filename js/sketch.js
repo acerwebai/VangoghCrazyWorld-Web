@@ -125,7 +125,6 @@ function updateInputImg(ele) {
 function uploadImg() {
     uploader.click();
     if (webcam) deactiveWebcam();
-    if (currentModel) transferImg();
 }
 
 function gotNewInputImg() {
@@ -133,6 +132,9 @@ function gotNewInputImg() {
      var newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
      input_source=1;
+     setTimeout(() => {
+       if (currentModel) transferImg();
+     }, 1e3);
      console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
   }
 }
