@@ -125,6 +125,8 @@ function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
      var newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
+     inputImg1.elt.style.width = '480px';
+     inputImg1.elt.style.height = '480px';
      inputImg.elt.src = newImgUrl;
      inputImg.elt.style.width = '480px';
      inputImg.elt.style.height = '480px';
