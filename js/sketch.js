@@ -39,6 +39,7 @@ function setup() {
 function modelLoaded() {
     modelReady = true;
     outputImgContainer.removeClass('reverse-img');
+    console.log("input source:"+input_source);
     if (input_source==1) inputImg = select('#input-img1');
     else inputImg = select('#input-img');
     inputImg.elt.style.width = '480px';
