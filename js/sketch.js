@@ -31,7 +31,7 @@ function setup() {
     outputImgContainer.parent('output-img-container');
 
     console.log('after load models-3');
-    transferImg();
+    //transferImg();
 }
 
 // A function to be called when the model has been loaded
@@ -40,7 +40,7 @@ function modelLoaded() {
     outputImgContainer.removeClass('reverse-img');
     //inputImg.elt.style.width = '480px';
     //inputImg.elt.style.height = '480px';
-    console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
+    //console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
     
     var d = new Date();
     var t1 = d.getTime();
