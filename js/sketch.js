@@ -4,132 +4,139 @@ Fast Style Transfer Simple Demo
 ===
 */
 
-let nets = {};
-let modelNames = ['Wheatfield_with_Crows', 'sien_with_a_cigar', 'Soup-Distribution', 'self-portrait', 'Red-Vineyards', 'la-campesinos', 'bedroom', 'Sunflowers-Bew','starrynight'];
-let inputImg, styleImg;
-let outputImgData;
-let outputImg;
-let modelNum = 0;
-let currentModel = 'starrynight';
+let nets, nets1;
+let inputImg, inputImg1, styleImg, inputImage;
+let input_source=0;  // 0: for example, 1: for upload image
+let outputImgContainer;
+let model_num = 0;
+let currentModel = 'starrynight'; 
+let currentInitModel = 'starrynight';  
 let uploader;
-let uploader1;
 let webcam = false;
 let modelReady = false;
 let video;
-let start = false;
 let isLoading = true;
 let isSafa = false;
 
 function setup() {
-  isSafa = isSafari();
-  if (isSafa) {
-    alert('Sorry we do not yet support your device, please open this page with Chrome on a desktop. We will support other devices in the near future!');
-    return;
-  }
+    inputImg = select('#input-img');
+    inputImg1 = select('#input-img1');
+    styleImg = select('#style-img').elt;
 
-  noCanvas();
-  inputImg = select('#input-img').elt;
-//  inputImg1 = select('#input-img1').elt;
-  styleImg = select('#style-img').elt;
+    // Image uploader
+    uploader = select('#uploader').elt;
+    uploader.addEventListener('change', gotNewInputImg);
 
-  // load models
-  modelNames.forEach(n => {
-    nets[n] = new ml5.TransformNet('models/' + n + '/', modelLoaded);
-  });
 
-  // Image uploader
-  uploader = select('#uploader').elt;
-  uploader.addEventListener('change', gotNewInputImg);
+    // output img container
+    outputImgContainer = createImg('images/loading.gif', 'image');
+    outputImgContainer.parent('output-img-container');
 
-//  uploader1 = select('#uploader1').elt;
-//  uploader1.addEventListener('change', gotNewInputImg1);
-    
-  // output img container
-  outputImgContainer = createImg('images/loading.gif', 'image');
-  outputImgContainer.parent('output-img-container');
-   
-  allowFirefoxGetCamera();
-	
-
+    console.log('after load models-3');
+    transferImg();
 }
 
 // A function to be called when the model has been loaded
 function modelLoaded() {
-  modelNum++;
-  if (modelNum >= modelNames.length) {
     modelReady = true;
-    predictImg(currentModel);
-  }
+    outputImgContainer.removeClass('reverse-img');
+    console.log("input source:"+input_source);
+    if (input_source==1) inputImg = select('#input-img1');
+    else inputImg = select('#input-img');
+    inputImg.elt.style.width = '480px';
+    inputImg.elt.style.height = '480px';
+    console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
+    
+    var d = new Date();
+    var t1 = d.getTime();
+    nets.transfer(inputImg, function (err, result) {
+        console.log('result:'+result + 'err:'+err);
+        outputImgContainer.elt.src = result.src;
+        var d2 = new Date();
+        var t2 = d2.getTime();
+        console.log("inference time = " + (t2 - t1) + "ms");
+    });
+    inputImg.elt.style.width = '250px';
+    inputImg.elt.style.height = '250px';
 }
 
-function predictImg(modelName) {
-  isLoading = true;
-  if (!modelReady) return;
-  if (webcam && video) {
-    outputImgData = nets[modelName].predict(video.elt);
-  } else if (inputImg) {
-    outputImgData = nets[modelName].predict(inputImg);
-  }
-//    else if(inputImg1) {
-//      outputImgData = nets[modelName].predict(inputImg1);
-//  }
-  outputImg = ml5.array3DToImage(outputImgData);
-  outputImgContainer.elt.src = outputImg.src;
-  isLoading = false;
-	$('#output-img-container-download').empty();
-	$('#output-img-container1').empty();
-	$('#output-img-container1-download').empty();
-	$('#output-img-container2').empty();
-	$('#output-img-container2-download').empty();
-	$('#output-img-container img').clone().appendTo('#output-img-container-download');
-	$('#output-img-container img').clone().appendTo('#output-img-container1');
-	$('#output-img-container img').clone().appendTo('#output-img-container1-download');
-	$('#output-img-container img').clone().appendTo('#output-img-container2');
-	$('#output-img-container img').clone().appendTo('#output-img-container2-download');
+function transferImg() {
+    if (webcam) deactiveWebcam();
+    console.log("transferImg");
+     
+    nets = new ml5.styleTransfer('models/' + currentModel + '/', modelLoaded);
+    
+}
+
+function modelLoaded1() {
+    outputImgContainer.addClass('reverse-img');
+  //      modelReady = true;
+    nets1.transfer(gotResult);
+}
+
+function gotResult(err, img) {
+    if (webcam) {
+        var d = new Date();
+        var t1 = d.getTime();
+        console.log(" in gotResult");
+        outputImgContainer.elt.src = img.src;
+        nets1.transfer(gotResult);
+        var d2 = new Date();
+        var t2 = d2.getTime();
+        console.log("webcam inference time = " + (t2 - t1) + "ms");
+    }
+}
+
+    // webcam transfer process
+function transferVideo() {
+        nets1 = new ml5.styleTransfer('models/' + currentModel + '/', video, modelLoaded1);
 }
 
 function draw() {
-  if (modelReady && webcam && video && video.elt && start) {
-    predictImg(currentModel);
-  }
 }
+
 
 function updateStyleImg(ele) {
   if (ele.src) {
     styleImg.src = ele.src;
-    currentModel = ele.id;
+    currentInitModel = ele.id;
+    if (model_num>0) currentModel = currentInitModel+'-'+String(model_num);
+    else currentModel=currentInitModel;
   }
-  if (currentModel) {
-    predictImg(currentModel);
-  }
+    if (currentModel) {
+        if (webcam) {
+            transferVideo();
+        } else {
+            transferImg();
+        }
+    }
 }
 
 function updateInputImg(ele) {
-  deactiveWebcam();
-  if (ele.src) inputImg.src = ele.src;
-  predictImg(currentModel);
+  if (webcam) deactiveWebcam();
+  if (ele.src) {
+    inputImg.elt.src = ele.src;
+  }
+  if (currentModel) {
+    input_source=0;
+    transferImg();
+  }
 }
 
 function uploadImg() {
-  uploader.click();
-  deactiveWebcam();
+    uploader.click();
+    if (webcam) deactiveWebcam();
 }
 
 function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
-    let newImgUrl = window.URL.createObjectURL(uploader.files[0]);
-    inputImg.src = newImgUrl;
-    inputImg.style.width = '200px';
-    inputImg.style.height = '200px';
-  }
-}
-
-function gotNewInputImg1() {
-  if (uploader1.files && uploader1.files[0]) {
-    let newImgUrl1 = window.URL.createObjectURL(uploader1.files[0]);
-    inputImg1.src = newImgUrl1;
-    inputImg1.style.width = '200px';
-    inputImg1.style.height = '200px';
+     var newImgUrl = window.URL.createObjectURL(uploader.files[0]);
+     inputImg1.elt.src = newImgUrl;
+     input_source=1;
+     setTimeout(() => {
+       if (currentModel) transferImg();
+     }, 1e3);
+     console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
   }
 }
 
@@ -137,79 +144,65 @@ function useWebcam() {
   if (!video) {
     // webcam video
     video = createCapture(VIDEO);
-    video.size(200, 200);
+    video.size(250, 250);
     video.parent('input-source2');
   }
   webcam = true;
-  select('#input-img2').hide();
-  outputImgContainer.addClass('reverse-img');
-}
-
-function deactiveWebcam1() {
-  start = false;
-  select('#input-img1').show();
-  outputImgContainer.removeClass('reverse-img');
-  webcam = false;
-  if (video) {
-    video.hide();
-    video = '';
-  }
+    select('#input-img2').hide();
+    transferVideo();
+  //outputImgContainer.addClass('reverse-img');
 }
 
 function deactiveWebcam() {
-  start = false;
-  select('#input-img2').show();
   outputImgContainer.removeClass('reverse-img');
-  webcam = false;
-  if (video) {
+ 
+  if (webcam) {
     video.hide();
     video = '';
-  }
-}
-
-function onPredictClick() {
-  if (webcam) start = true;
-  predictImg(currentModel);
-}
-
-function allowFirefoxGetCamera() {
-  navigator.getUserMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
-}
-
-function isSafari() {
-  var ua = navigator.userAgent.toLowerCase();
-  if (ua.indexOf('safari') != -1) {
-    if (ua.indexOf('chrome') > -1) {
-      return false;
-    } else {
-      return true;
     }
+    webcam = false;
+}
+    
+function onPredictClick() {
+  currentModel=currentInitModel;
+  model_num=0;
+  outputImgContainer.parent('output-img-container');
+    if (webcam) {
+        console.log('onpredictclick: video');
+        transferVideo();
+    } else {
+        console.log('onpredictclick: img');
+        transferImg();
+        //console.log('onpredictclick: img');
+    }
+}
+
+function onPredictClick1() {
+  currentModel = currentInitModel + "-1";
+  model_num=1;
+  outputImgContainer.parent('output-img-container1');
+  if (webcam) {
+      console.log('onpredictclick1: video');
+      transferVideo();
+  } else {
+      console.log('onpredictclick1: img');
+      transferImg();
+      //console.log('onpredictclick: img');
+  }
+}
+
+function onPredictClick2() {
+  currentModel = currentInitModel + "-2";
+  model_num=2;
+  outputImgContainer.parent('output-img-container2');
+  if (webcam) {
+      console.log('onpredictclick2: video');
+      transferVideo();
+  } else {
+      console.log('onpredictclick2: img');
+      transferImg();
+      //console.log('onpredictclick: img');
   }
 }
 
 
-
-/**
-* @param imgData Array3D containing pixels of a img
-* @return p5 Image
-*/
-// function array3DToP5Image(imgData) {  
-//   const imgWidth = imgData.shape[0];
-//   const imgHeight = imgData.shape[1];
-//   const data = imgData.dataSync();
-//   const outputImg = createImage(imgWidth, imgHeight);
-//   outputImg.loadPixels();
-//   let k = 0;
-//   for (let i = 0; i < outputImg.width; i++) {
-//     for (let j = 0; j < outputImg.height; j++) {
-//       k = (i + j * height) * 3;
-//       let r = floor(256 * data[k + 0]);
-//       let g = floor(256 * data[k + 1]);
-//       let b = floor(256 * data[k + 2]);
-//       let c = color(r, g, b);
-//       outputImg.set(i, j, c);
-//     }
-//   }
-//   outputImg.updatePixels();
-//   return outputImg;
-// }
