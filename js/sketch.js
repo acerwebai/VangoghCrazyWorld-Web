@@ -6,6 +6,7 @@ Fast Style Transfer Simple Demo
 
 let nets, nets1;
 let inputImg, inputImg1, styleImg, inputImage;
+let input_source=0;  // 0: for example, 1: for upload image
 let outputImgContainer;
 let model_num = 0;
 let currentModel = 'starrynight'; 
@@ -31,16 +32,18 @@ function setup() {
     outputImgContainer.parent('output-img-container');
 
     console.log('after load models-3');
-    //transferImg();
+    transferImg();
 }
 
 // A function to be called when the model has been loaded
 function modelLoaded() {
     modelReady = true;
     outputImgContainer.removeClass('reverse-img');
-    //inputImg.elt.style.width = '480px';
-    //inputImg.elt.style.height = '480px';
-    //console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
+    if (input_source==1) inputImg = select('#input-img1');
+    else inputImg = select('#input-img');
+    inputImg.elt.style.width = '480px';
+    inputImg.elt.style.height = '480px';
+    console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
     
     var d = new Date();
     var t1 = d.getTime();
@@ -112,7 +115,10 @@ function updateInputImg(ele) {
   if (ele.src) {
     inputImg.elt.src = ele.src;
   }
-  if (currentModel) transferImg();
+  if (currentModel) {
+    input_source=0;
+    transferImg();
+  }
 }
 
 function uploadImg() {
@@ -125,13 +131,9 @@ function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
      var newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
-     inputImg1.elt.style.width = '480px';
-     inputImg1.elt.style.height = '480px';
-     inputImg.elt.src = newImgUrl;
-     inputImg.elt.style.width = '480px';
-     inputImg.elt.style.height = '480px';
+     input_source=1;
+     transferImg();
      console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
-     console.log("inputImg size:"+inputImg.elt.width+"x"+inputImg.elt.height);
   }
 }
 
