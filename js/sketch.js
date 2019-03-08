@@ -27,6 +27,7 @@ function setup() {
     uploader = select('#uploader').elt;
     uploader.addEventListener('change', gotNewInputImg);
 
+
     // output img container
     outputImgContainer = createImg('images/loading.gif', 'image');
     outputImgContainer.parent('output-img-container');
@@ -203,3 +204,5 @@ function onPredictClick2() {
       //console.log('onpredictclick: img');
   }
 }
+
+
