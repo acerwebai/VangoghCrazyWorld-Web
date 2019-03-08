@@ -3,7 +3,6 @@
 Fast Style Transfer Simple Demo
 ===
 */
-
 let nets, nets1;
 let inputImg, inputImg1, styleImg, inputImage;
 let input_source=0;  // 0: for example, 1: for upload image
