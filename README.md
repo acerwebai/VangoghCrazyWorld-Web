@@ -17,9 +17,8 @@ Following describes what is the steps that we need to do step by step. Enjoy it.
  </pre>
  
 ## Inference performance adjustment
-To get a more efficent inference time on web experience. to reduce the model size is necessary. <br/>
-We modify the num_filter when we training tensorflow models. To get the enough quality and acceptable inference performance.<br/>
-We do some experiments, and get following benchmark table.
+To get a more efficent inference time on web experience. Reducing the model size is necessary. <br/>
+We modify the initial value of num_filter when we training tensorflow models. To get the enough quality and acceptable inference performance, we do some experiments, and get following benchmark table.
 <table>
  <tr>
   <td></td><td>UHD 620 (250x250) </td><td>UHD 620 (480X480)</td></tr>
@@ -27,12 +26,13 @@ We do some experiments, and get following benchmark table.
  </tr>
  </table>
 As the benchmark table, we think the result of 8 num_filter and the input image with 480x480 dimension is acceptable. <br/>
-No matter inference time per frame or output quality on web experience.
-Therefore, we adjust the initial num filter to 8 from 32 that default in python code of <a href="https://github.com/lengstrom/fast-style-transfer"> published by lengstrom</a> for training.
+No matter inference time per frame or output quality on web experience, it get a comfortable result.
+Therefore, we adjust the initial num filter to 8 from 32 that default in python code of <a href="https://github.com/lengstrom/fast-style-transfer"> published by lengstrom</a> for training models.
 <br/>
 
 ## ML5.js library adjustment
-The original ML5.js library is limit the initial num filter as 32. To support our modified models, we need revise the ml5.min.js library.
+The original ML5.js library is limit the initial num filter as 32. To support our modified models, we need revise the ml5.min.js library.<br/>
+First, get the latest library source from ML5.js library github.<br/>
 Here is the change we did in the library.<br/>
 1. input dimension for video: 200x200 -> 480x480<br/>
 modify index.js of StyleTransfer in ML5.js library
@@ -54,6 +54,7 @@ to
       const convT1 = this.convTransposeLayer(res5, 16, 2, 39);
       const convT2 = this.convTransposeLayer(convT1, 8, 2, 42);
 </pre>
+After revised the source code, following the instruction in  CONTRIBUTING.md to recompile the mini js files.
 
 ## Credits 
 #### The authers of <a href="https://github.com/reiinakano/fast-style-transfer-deeplearnjs"> fast-style-transfer-deeplearnjs</a>
