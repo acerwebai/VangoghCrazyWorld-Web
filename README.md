@@ -1,9 +1,9 @@
 # Vangogh Crazy World - Web code
 
-Here is the practice about how to make models that are trained by python code in <href="https://github.com/acerwebai/VangoghCrazyWorld"> VangoghCrazyWorld</href>.
+Here is the practice about how to make models that are trained by python code in <a href="https://github.com/acerwebai/VangoghCrazyWorld"> VangoghCrazyWorld</a>.
 It's implemented by ML5.js and P5.js. 
 ML5.js is a high end API base on TensorFlow.js that published by Google.
-You can get mode details from the <href="https://ml5js.org/">ML5.js web</href> and <href="https://www.tensorflow.org/js/">tensorflow.js web </href>
+You can get mode details from the <a href="https://ml5js.org/">ML5.js web</a> and <a href="https://www.tensorflow.org/js/">tensorflow.js web </a>
 Following describes what is the steps that we need to do step by step. Enjoy it.
 
 ## Convert models
