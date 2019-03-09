@@ -8,19 +8,39 @@ You can get mode details from the <a href="https://ml5js.org/">ML5.js web</a> an
 Following describes what is the steps that we need to do step by step. Enjoy it.
 
 ## Convert models
- descript how to convert tf models to ml5.js models
+ After trained your own model by the python code in <a href="https://github.com/acerwebai/VangoghCrazyWorld"> VangoghCrazyWorld</a> that we modified from the code <a href="https://github.com/lengstrom/fast-style-transfer"> published by lengstrom</a>.<br/>
+ git clone the code from <a href="https://github.com/reiinakano/fast-style-transfer-deeplearnjs"> fast-style-transfer-deeplearnjs</a><br/>
+ Following below instructions to convert TensorFlow checkpoint files to ML5 supported variable files.
+ <pre>
+ $ python scripts/dump_checkpoint_vars.py --output_dir=src/ckpts/my-new-style --checkpoint_file=/path/to/model.ckpt
+ $ python scripts/remove_optimizer_variables.py --output_dir=src/ckpts/my-new-style
+ </pre>
 ## Inference performance adjustment
-
+To get a more efficent inference time on web experience. to reduce the model size is necessary. <br/>
+We modify the num_filter when we training tensorflow models. To get the enough quality and acceptable inference performance.<br/>
+We do some experiments, and get following benchmark table.
+<table>
+ <tr>
+  <td></td><td>UHD 620 (250x250) </td><td>UHD 620 (480X480)</td></tr>
+ <tr><td> 4 num filter</td><td></td><td></td>
+ </tr>
+ </table>
+As the benchmark table, we think the result of 8 num_filter and the input image with 480x480 dimension is acceptable. <br/>
+No matter inference time per frame or output quality on web experience.
+Therefore, we adjust the initial num filter to 8 from 32 that default in python code of <a href="https://github.com/lengstrom/fast-style-transfer"> published by lengstrom</a> for training.
 ## ML5.js library adjustment
 
-## Reference 
-
+## Credits 
+#### The authers of <a href="https://github.com/reiinakano/fast-style-transfer-deeplearnjs"> fast-style-transfer-deeplearnjs</a>
+#### The authers of <a href="https://github.com/yining1023/fast_style_transfer_in_ML5/"> fast-style transfer-in-ML5</a>
+#### The author of <a href="https://github.com/lengstrom/fast-style-transfer"> fast-style-transfer by tensorflow</a>
+#### <a href="https://github.com/ml5js/ml5-library"> ML5.js Library github</a>
 
 ## License
 
-This project is licensed under the Apache License 2.0, see the [LICENSE.md](LICENSE)
+This project is licensed under the MIT, see the [LICENSE.md](LICENSE)
 
-## Acknowledgments
+## S
 
 * Hat tip to anyone whose code was used
 * Inspiration
