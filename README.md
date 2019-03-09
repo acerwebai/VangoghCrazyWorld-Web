@@ -15,6 +15,7 @@ Following describes what is the steps that we need to do step by step. Enjoy it.
  $ python scripts/dump_checkpoint_vars.py --output_dir=src/ckpts/my-new-style --checkpoint_file=/path/to/model.ckpt
  $ python scripts/remove_optimizer_variables.py --output_dir=src/ckpts/my-new-style
  </pre>
+ 
 ## Inference performance adjustment
 To get a more efficent inference time on web experience. to reduce the model size is necessary. <br/>
 We modify the num_filter when we training tensorflow models. To get the enough quality and acceptable inference performance.<br/>
@@ -29,6 +30,7 @@ As the benchmark table, we think the result of 8 num_filter and the input image 
 No matter inference time per frame or output quality on web experience.
 Therefore, we adjust the initial num filter to 8 from 32 that default in python code of <a href="https://github.com/lengstrom/fast-style-transfer"> published by lengstrom</a> for training.
 <br/>
+
 ## ML5.js library adjustment
 The original ML5.js library is limit the initial num filter as 32. To support our modified models, we need revise the ml5.min.js library.
 Here is the change we did in the library.<br/>
@@ -62,11 +64,4 @@ to
 ## License
 
 This project is licensed under the MIT, see the [LICENSE.md](LICENSE)
-
-## S
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* ...
-
 
