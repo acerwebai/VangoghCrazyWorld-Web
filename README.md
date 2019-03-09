@@ -28,7 +28,30 @@ We do some experiments, and get following benchmark table.
 As the benchmark table, we think the result of 8 num_filter and the input image with 480x480 dimension is acceptable. <br/>
 No matter inference time per frame or output quality on web experience.
 Therefore, we adjust the initial num filter to 8 from 32 that default in python code of <a href="https://github.com/lengstrom/fast-style-transfer"> published by lengstrom</a> for training.
+<br/>
 ## ML5.js library adjustment
+The original ML5.js library is limit the initial num filter as 32. To support our modified models, we need revise the ml5.min.js library.
+Here is the change we did in the library.<br/>
+1. input dimension for video: 200x200 -> 480x480<br/>
+modify index.js of StyleTransfer in ML5.js library
+<pre>
+const IMAGE_SIZE = 200;
+</pre>
+to 
+<pre>
+const IMAGE_SIZE = 480;
+</pre>
+2. fulfill initial num filter modification of trained models.<br/>
+modify index.js of StyleTransfer in ML5.js library
+<pre>
+      const convT1 = this.convTransposeLayer(res5, 64, 2, 39);
+      const convT2 = this.convTransposeLayer(convT1, 32, 2, 42);
+</pre>
+to
+<pre>
+      const convT1 = this.convTransposeLayer(res5, 16, 2, 39);
+      const convT2 = this.convTransposeLayer(convT1, 8, 2, 42);
+</pre>
 
 ## Credits 
 #### The authers of <a href="https://github.com/reiinakano/fast-style-transfer-deeplearnjs"> fast-style-transfer-deeplearnjs</a>
