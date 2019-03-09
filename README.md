@@ -1,13 +1,18 @@
-# Vangogh Crazy World
+# Vangogh Crazy World - Web code
 
-Here are a few pictures that are suitable for conversion into Van Gogh paintings. Together with selected classic Van Gogh paintings, you can use the artificial intelligence technology of style transfer to let you experience Van Gogh in modern scenes and draw it.
+Here is the practice about how to make models that are trained by python code in <href="https://github.com/acerwebai/VangoghCrazyWorld"> VangoghCrazyWorld</href>.
+It's implemented by ML5.js and P5.js. 
+ML5.js is a high end API base on TensorFlow.js that published by Google.
+You can get mode details from the <href="https://ml5js.org/">ML5.js web</href> and <href="https://www.tensorflow.org/js/">tensorflow.js web </href>
+Following describes what is the steps that we need to do step by step. Enjoy it.
 
-From this sample, you will know following
-* Who is Vangogh?
-* How to get Vangogh's assistance to paint what you see?
-* The best practice on tuning parameter to retrain model for Vangogh style transer?
+## Convert models
+ descript how to convert tf models to ml5.js models
+## Inference performance adjustment
 
-## ---- following still need modification ------
+## ML5.js library adjustment
+
+## Reference 
 
 One Paragraph of project description goes here, example: Neural Style Transfer, Van Gogh Crazy World
 Descriptions:
