@@ -21,8 +21,14 @@ To get a more efficent inference time on web experience. Reducing the model size
 We modify the initial value of num_filter when we training tensorflow models. To get the enough quality and acceptable inference performance, we do some experiments, and get following benchmark table.
 <table>
  <tr>
-  <td></td><td>UHD 620 (250x250) </td><td>UHD 620 (480X480)</td></tr>
- <tr><td> 4 num filter</td><td></td><td></td>
+  <td>num filters<br/> inference time(ms)</td><td>Intel UHD 620 4G VRAM (250x250) </td><td>Intel UHD 620 4G VRAM (480X480)</td><td>Intel UHD 620 4G VRAM (720X720)</tr>
+ <tr><td> 4 num filter</td><td>130ms <img width="250px" src="benchmark/pictures/4-250.png" /></td><td>270ms <img width="250px" src="benchmark/pictures/4-480.png" /></td><td>540ms <img width="250px" src="benchmark/pictures/4-720.png" /></td> 
+ </tr>
+ <tr><td> 8 num filter</td><td>200ms <img width="250px" src="benchmark/pictures/8-250.png" /></td><td bgcolor="ffff00">600ms <img width="250px" src="benchmark/pictures/8-480.png" /></td><td>WebGL context lost</td> 
+ </tr>
+ <tr><td> 16 num filter</td><td>600ms <img width="250px" src="benchmark/pictures/16-250.png" /></td><td>WebGL context lost</td><td>WebGL context lost</td> 
+ </tr>
+ <tr><td> 32 num filter</td><td>1710ms <img width="250px" src="benchmark/pictures/32-250.png" /></td><td>WebGL context lost</td><td>WebGL context lost</td> 
  </tr>
  </table>
 As the benchmark table, we think the result of 8 num_filter and the input image with 480x480 dimension is acceptable. <br/>
