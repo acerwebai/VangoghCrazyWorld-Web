@@ -1,4 +1,4 @@
-# Vangogh Crazy World - Web code
+# Vangogh Crazy World - Web Practice
 
 Here is the practice about how to make models that are trained by python code in <a href="https://github.com/acerwebai/VangoghCrazyWorld"> VangoghCrazyWorld</a>.<br/>
 It's implemented by ML5.js and P5.js. <br/>
