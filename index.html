@@ -35,9 +35,14 @@
 
 <style>
 img {
-  width: 250px;
+  width: 360px;
   height: 250px;
 }
+	
+	.center-container1 img {
+		width: 400px!important;
+		height: auto;
+	}
 	
 /*
 	#output-img-container:hover
@@ -87,22 +92,32 @@ img {
     <div class="row"> 
       <div class="col-lg-12"> 
       <div class="page-title-name">
-          <h1>Vangogh's Crazy World</h1>
-          <p>Makes your photo or video more artistic.</p>
+
+          <h1>Vangogh Crazy World</h1>
+          <p>Reproduce the painting style of Van Gogh in modern scenes through the style transfer of artificial intelligence.</p>
+
         </div>
               <div class="share clearfix dt-mt--50">
 <!--               <a class="button x-small" href="https://teachablemachine.withgoogle.com/">Launch Experiment</a>-->
                   <div class="social xs-mt-10 float-right">
                       <ul>
-<!--
+
                           <li>
-                              <a class="button x-small" href="#"> <i class="fa fa-android"></i> </a>
+                              <a class="button x-small" href="https://github.com/acerwebai/VangoghCrazyWorld-Web" target="_blank"> <i class="fa fa-code"></i> </a>
+                          </li>
+
+
+                          <li>
+                            <a class="button x-small" href="https://github.com/acerwebai/VangoghCrazyWorld-UWP" target="_blank"> <i class="fa fa-windows"></i> </a>
                           </li>
                           <li>
-                              <a class="button x-small" href="#"> <i class="fa fa-windows"></i> </a>
+                              <a class="button x-small" href="https://github.com/acerwebai/VangoghCrazyWorld-Android" target="_blank"> <i class="fa fa-android"></i> </a>
                           </li>
--->
                           <li>
+                            <a class="button x-small ncs" href="https://github.com/acerwebai/VangoghCrazyWorld-NCS" target="_blank"> <img src="images/ncs.svg" class="svg"/> </a>
+                          </li>    
+                          <li>
+
                               <a class="button x-small" href="https://github.com/acerwebai/VangoghCrazyWorld" target="_blank"> <i class="fa fa-github"></i> </a>
                           </li>
 <!--
@@ -125,11 +140,113 @@ img {
 <section class="white-bg">
   <div class="container">
     <div class="row">
+  	
+  <div id="learning-container" class="col-lg-4 col-md-12">
+    <div class="pt-50 pb-30">
+         <button type="button" class="button btn-circle mr-10 disable">1</button>
+         Choose style
+     </div>
+<!--     <div class="mg-250"></div>-->
+   <div style="height: 290px; overflow: hidden; ">
+   <div class="style-name-box" ><span id="style-name">The starry night</span></div>
+    <div class="center-container1 ">
+      <img id="style-img" src='images/starrynight.jpg' width="100%">
+    </div>
+  </div>
+    <div style=" width: 360px;overflow: auto;">
+    <div style="overflow-y: scroll; overflow-x: hidden; width: 735px; height: 80px;">
+    <ul>
+    	<li>
+    		<img class="image" id="starrynight" src='images/starrynight.jpg' alt="The starry night" onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" />
+<!--    		data-toggle="tooltip" data-placement="top" title="The starry night"-->
+    	</li>
+		<li>
+    		<img class="image" id="Red-Vineyards" src='images/Red-Vineyards.jpg' alt="The Red Vineyard" onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;"/>
+    	</li>
+		<li>
+    		<img class="image" id="Wheatfield_with_Crows" src='images/Wheatfield_with_Crows.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Wheatfield with Crows"/>
+    	</li>
+    	<li>
+    		<img class="image" id="sien_with_a_cigar" src='images/sien_with_a_cigar.jpg'  onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;"  alt="Sien with a cigar"/>
+    	</li>
+    	<li>
+    		<img class="image" id="Soup-Distribution" src='images/Soup-Distribution.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Soup Distribution in a Public Soup Kitchen"/>
+    	</li>
+    	<li>
+    		<img class="image" id="self-portrait" src='images/self-portrait.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Self-Portrait"/>
+    	</li>
+    	<li>
+    		<img class="image" id="la-campesinos" src='images/la-campesinos.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;"  alt="Rest from Work"/>
+    	</li>
+    	<li>
+    		<img class="image" id="bedroom" src='images/bedroom.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Vincent`s Bedroom in Arles"/>
+    	</li>
+    	<li>
+    		<img class="image" id="Sunflowers-Bew" src='images/Sunflowers-Bew.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="“Sunflowers” (1889)"/>
+    	</li>
+    </ul>
+	</div>
     
+<!--
+        <div class="style-container1 row">
+          <div class="container1 col-4">
+            <a class="imageAnchor" href="#" autofocus>
+              <img class="image" id="starrynight" src='images/starrynight.jpg' onclick="updateStyleImg(this)"/>
+            </a>
+          </div>
+          <div class="container1 col-4">
+            <a class="imageAnchor" href="#">
+              <img class="image" id="Red-Vineyards" src='images/Red-Vineyards.jpg' onclick="updateStyleImg(this)"/>
+            </a>
+          </div>
+          <div class="container1 col-4">
+            <a class="imageAnchor" href="#">
+              <img class="image" id="Wheatfield_with_Crows" src='images/Wheatfield_with_Crows.jpg' onclick="updateStyleImg(this)"/>
+            </a>
+          </div>
+        </div>
+        <div class="style-container1 row">
+          <div class="container1 col-4">
+            <a class="imageAnchor" href="#">
+              <img class="image" id="sien_with_a_cigar" src='images/sien_with_a_cigar.jpg' onclick="updateStyleImg(this)"/>
+            </a>
+          </div>
+          <div class="container1 col-4">
+            <a class="imageAnchor" href="#">
+              <img class="image" id="Soup-Distribution" src='images/Soup-Distribution.jpg' onclick="updateStyleImg(this)"/>
+            </a>
+          </div>
+          <div class="container1 col-4">
+            <a class="imageAnchor" href="#">
+              <img class="image" id="self-portrait" src='images/self-portrait.jpg' onclick="updateStyleImg(this)"/>
+            </a>
+          </div>
+        </div>
+        <div class="style-container1 row">
+
+      <div class="container1 col-4">
+        <a class="imageAnchor" href="#">
+          <img class="image" id="la-campesinos" src='images/la-campesinos.jpg' onclick="updateStyleImg(this)"/>
+        </a>
+      </div>
+      <div class="container1 col-4">
+        <a class="imageAnchor" href="#">
+          <img class="image" id="bedroom" src='images/bedroom.jpg' onclick="updateStyleImg(this)"/>
+        </a>
+      </div>
+      <div class="container1 col-4">
+        <a class="imageAnchor" href="#">
+          <img class="image" id="Sunflowers-Bew" src='images/Sunflowers-Bew.jpg' onclick="updateStyleImg(this)"/>
+        </a>
+      </div>
+-->   
+    </div>
+    </div>
+
      <div class="col-lg-4 col-md-12 input-container">
      <div class="pt-50 pb-30">
-         <button type="button" class="button btn-circle mr-10 disable">1</button>
-         Select photo or video
+         <button type="button" class="button btn-circle mr-10 disable">2</button>
+         Select content
      </div>
       <div class="tab tab-border ">
         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -143,15 +260,73 @@ img {
               <a class="nav-link" id="webcam-tab" data-toggle="tab" href="#webcam" role="tab" aria-controls="portfolio-04" aria-selected="false">Webcam</a>
             </li>
           </ul>
-          <div class="tab-content pb-50" id="example-tab">
-            <div class="tab-pane fade active show pb-40" id="example" role="tabpanel" aria-labelledby="example-tab">
+          <div class="tab-content pt-0 pr-0 pl-0 pb-0" id="example-tab">
+            <div class="tab-pane fade active show" id="example" role="tabpanel" aria-labelledby="example-tab">
 <!--    <h3 class="title text-center">INPUT</h3>-->
-    <div class="center-container"  style="opacity: 0;">
+    <div class="center-container">
       <img id="input-img" src='images/taipei101.jpg'/>
 <!--      <div id="input-source" class="reverse-img"></div>-->
+   		<div class="photo-name-box"><span id="photo-name">Taipei 101 Fireworks 2017</span> <a href="https://ccsearch.creativecommons.org/photos/1e7c0dd5-ff62-49f0-ba0e-b263a0253dfc" id="photo-link" target="_blank"><img src="images/cc_icon_white.png"/></a></div>
     </div>
-    <div class="mg-250"></div>
+<!--    <div class="mg-250"></div>-->
+    <div class="content-menu" style=" width: 360px;overflow: auto;">
+    <div style="overflow-y: scroll; overflow-x: hidden; width: 735px; height: 80px;">
+    	<ul>
+    		<li>
+   			
+				 <img class="image" id="taipei101" src='images/taipei101.jpg' alt="Taipei 101 Fireworks 2017" href="https://ccsearch.creativecommons.org/photos/1e7c0dd5-ff62-49f0-ba0e-b263a0253dfc" onclick="updateInputImg(this);
+				 document.getElementById('photo-name').innerText = this.alt;
+				 $('#photo-link').attr('href','https://ccsearch.creativecommons.org/photos/1e7c0dd5-ff62-49f0-ba0e-b263a0253dfc');
+				 " />
+<!--    			 <div class="content-photo-name">Taipei101 <a href="https://ccsearch.creativecommons.org/photos/1e7c0dd5-ff62-49f0-ba0e-b263a0253dfc" target="_blank"><i class="fa fa-link"></i></a></div>-->
+
+    		</li>
+    		<li>
+    			<img class="image" id="Colosseum" src='images/Colosseum.jpg' alt="A Gladiators Dream. Colosseum, Rome." onclick="updateInputImg(this); 
+    			document.getElementById('photo-name').innerText = this.alt; 
+    			$('#photo-link').attr('href','https://ccsearch.creativecommons.org/photos/5f3fe3c1-c9a2-4395-973c-4f90935856a1'); "/>
+<!--    			<div class="content-photo-name">Rome <a href="https://ccsearch.creativecommons.org/photos/37b4f240-02c9-4b2e-a581-bb026439002a" target="_blank"><i class="fa fa-link"></i></a></div>-->
+    		</li>
+    		<li>
+    			<img class="image" id="Sydney" src='images/Sydney.jpg' alt="Ópera de Sydney" onclick="updateInputImg(this);
+    			document.getElementById('photo-name').innerText = this.alt; 
+    			$('#photo-link').attr('href','https://ccsearch.creativecommons.org/photos/37b4f240-02c9-4b2e-a581-bb026439002a');"/>
+    		</li>
+    		<li>
+    			<img class="image" id="BurjAlArab" src='images/BurjAlArab.jpg' alt="Burj Al Arab Hotel, Dubai" onclick="updateInputImg(this);
+    			document.getElementById('photo-name').innerText = this.alt; 
+    			$('#photo-link').attr('href','https://ccsearch.creativecommons.org/photos/045c45c0-2fcf-45d7-b866-5599b2196fed');"/>
+    		</li>
+    		<li>
+    			<img class="image" id="ArcdeTriomphe" src='images/ArcdeTriomphe.jpg' alt="Arc de TriompheArc de Triomphe" onclick="updateInputImg(this);
+    			document.getElementById('photo-name').innerText = this.alt; 
+    			$('#photo-link').attr('href','https://ccsearch.creativecommons.org/photos/11fe5fbc-dbbb-4be3-9238-41cd7047256e');"/>
+    		</li>
+    		<li>
+    			<img class="image" id="ShanghaiCenter" src='images/ShanghaiCenter.jpg' alt="Shangha iCenter" onclick="updateInputImg(this);
+    			document.getElementById('photo-name').innerText = this.alt; 
+    			$('#photo-link').attr('href','https://ccsearch.creativecommons.org/photos/');"/>
+    		</li>
+    		<li>
+    			<img class="image" id="sunset1" src='images/sunset1.jpg' alt="cooktown sunset" onclick="updateInputImg(this);
+    			document.getElementById('photo-name').innerText = this.alt; 
+    			$('#photo-link').attr('href','https://ccsearch.creativecommons.org/photos/7df8526c-1fa3-4aa8-9dda-6a936bb9b45d');"/>
+    		</li>
+    		<li>
+    			<img class="image" id="sunset2" src='images/sunset2.jpg' alt="...for the Red Sun (HDR)" onclick="updateInputImg(this);
+    			document.getElementById('photo-name').innerText = this.alt; 
+    			$('#photo-link').attr('href','https://ccsearch.creativecommons.org/photos/200fcf16-fd90-400b-9e7e-ead138e2f67d');"/>
+    		</li>
+    		<li>
+    			<img class="image" id="sunset3" src='images/sunset3.jpg' alt="Sunset East River" onclick="updateInputImg(this);
+    			document.getElementById('photo-name').innerText = this.alt; 
+    			$('#photo-link').attr('href','https://ccsearch.creativecommons.org/photos/32ae2409-8fa7-43fb-8030-78d1d37befd5');"/>
+    		</li>
+    	</ul>
+    	</div>
+    </div>
     
+<!--
     <div class="style-container1 row">
       <div class="container1 col-4">
         <a class="imageAnchor" href="#" autofocus>
@@ -203,6 +378,7 @@ img {
         </a>
       </div>
     </div>
+-->
 
 <!--  
     <div class="style-container">
@@ -216,13 +392,13 @@ img {
            
             <div class="tab-pane fade" id="upload" role="tabpanel" aria-labelledby="upload-tab">
                <div class="center-container">
-                  <img id="input-img1" src='images/taipei101.jpg'/>
+                  <img id="input-img1" src='images/picture.png'/>
                   <div id="input-source1" class="reverse-img"></div>
                 </div>
 <!--                <div class="mg-200"></div>-->
                 
                 <div class="style-container">
-<!--                  <input id="uploader" name="inputImgFile" type="file" accept="image/*">-->
+                  <input id="uploader" name="inputImgFile" type="file" accept="image/*">
                   <div class="link" onclick="uploadImg()"><i class="fa fa-upload"></i> Upload an image</div>
             <!--      <div class="link" onclick="useWebcam()">Use my webcam</div>-->
                 </div>
@@ -235,7 +411,7 @@ img {
                       <div id="input-source2" class="reverse-img"></div>
                     </div>
                  <div class="style-container">
-                      <input id="uploader" name="inputImgFile" type="file" accept="image/*">
+                <!--      <input id="uploader" name="inputImgFile" type="file" accept="image/*"> -->
                 <!--      <div class="link" onclick="uploadImg()">Upload an image</div>-->
                       <div class="link" onclick="useWebcam()">Use my webcam</div>
                     </div>
@@ -247,191 +423,59 @@ img {
     </div>
     
 
-  <div id="learning-container" class="col-lg-4 col-md-12">
-    <div class="pt-50 pb-30">
-         <button type="button" class="button btn-circle mr-10 disable">2</button>
-         Choose style
-     </div>
-     <div class="mg-250"></div>
-    <div class="center-container" style="opacity: 0;position: relative; z-index: -100;">
-      <img id="style-img" src='images/starrynight.jpg' width="0" height="0">
-    </div>
-    <div class="border pd-20 pt-60 xs-pt-40 pb-90 min-h-320">
-        <div class="style-container1 row">
-          <div class="container1 col-4">
-            <a class="imageAnchor" href="#" autofocus>
-              <img class="image" id="starrynight" src='images/starrynight.jpg' onclick="updateStyleImg(this)"/>
-            </a>
-          </div>
-          <div class="container1 col-4">
-            <a class="imageAnchor" href="#">
-              <img class="image" id="Red-Vineyards" src='images/Red-Vineyards.jpg' onclick="updateStyleImg(this)"/>
-            </a>
-          </div>
-          <div class="container1 col-4">
-            <a class="imageAnchor" href="#">
-              <img class="image" id="Wheatfield_with_Crows" src='images/Wheatfield_with_Crows.jpg' onclick="updateStyleImg(this)"/>
-            </a>
-          </div>
-        </div>
-        <div class="style-container1 row">
-          <div class="container1 col-4">
-            <a class="imageAnchor" href="#">
-              <img class="image" id="sien_with_a_cigar" src='images/sien_with_a_cigar.jpg' onclick="updateStyleImg(this)"/>
-            </a>
-          </div>
-          <div class="container1 col-4">
-            <a class="imageAnchor" href="#">
-              <img class="image" id="Soup-Distribution" src='images/Soup-Distribution.jpg' onclick="updateStyleImg(this)"/>
-            </a>
-          </div>
-          <div class="container1 col-4">
-            <a class="imageAnchor" href="#">
-              <img class="image" id="self-portrait" src='images/self-portrait.jpg' onclick="updateStyleImg(this)"/>
-            </a>
-          </div>
-        </div>
-        <div class="style-container1 row">
-      <div class="container1 col-4">
-        <a class="imageAnchor" href="#">
-          <img class="image" id="la-campesinos" src='images/la-campesinos.jpg' onclick="updateStyleImg(this)"/>
-        </a>
-      </div>
-      <div class="container1 col-4">
-        <a class="imageAnchor" href="#">
-          <img class="image" id="bedroom" src='images/bedroom.jpg' onclick="updateStyleImg(this)"/>
-        </a>
-      </div>
-      <div class="container1 col-4">
-        <a class="imageAnchor" href="#">
-          <img class="image" id="Sunflowers-Bew" src='images/Sunflowers-Bew.jpg' onclick="updateStyleImg(this)"/>
-        </a>
-      </div>
-    </div>
-    </div>
-  </div>
-
 
      <div class="col-lg-4 col-md-12 input-container">
      <div class="pt-50 pb-30">
          <button type="button" class="button btn-circle mr-10 disable">3</button>
-         Result
+         Result (Style Similar Level)
      </div>
       <div class="tab tab-border ">
         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active show" id="home-04-tab" data-toggle="tab" href="#result1" role="tab" aria-controls="example" aria-selected="true">Lower</a>
+              <a class="nav-link active show" id="home-04-tab" data-toggle="tab" href="#result1" role="tab" aria-controls="example" aria-selected="true" onclick="onPredictClick()">Lower</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="profile-04-tab" data-toggle="tab" href="#result2" role="tab" aria-controls="upload" aria-selected="false">Medium</a>
+              <a class="nav-link" id="profile-04-tab" data-toggle="tab" href="#result2" role="tab" aria-controls="upload" aria-selected="false" onclick="onPredictClick1()">Medium</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="webcam-tab" data-toggle="tab" href="#result3" role="tab" aria-controls="portfolio-04" aria-selected="false">Higher</a>
+              <a class="nav-link" id="webcam-tab" data-toggle="tab" href="#result3" role="tab" aria-controls="portfolio-04" aria-selected="false" onclick="onPredictClick2()">Higher</a>
             </li>
           </ul>
-          <div class="tab-content pb-20" id="example-tab">
+          <div class="tab-content pt-0 pr-0 pl-0 pb-25 border" id="example-tab">
             
           <div class="tab-pane fade active show" id="result1" role="tabpanel" aria-labelledby="example-tab">
 			<div id="output-img-container"></div>
-			 <div class="style-container">
-				<button class="button btn-block mb-10" onclick="onPredictClick()">Transfer</button>
+			 <div class="style-container pt-15">
+			 		<button class="button button-border black download-btn"><i class="fa fa-download"></i></button>
+<!--				<button class="button btn-block mb-10" onclick="onPredictClick()">Transfer</button>-->
 			</div>
      	</div>
            
             <div class="tab-pane fade" id="result2" role="tabpanel" aria-labelledby="upload-tab">
 			<div id="output-img-container1"></div>
-			 <div class="style-container">
-				<button class="button btn-block mb-10" onclick="onPredictClick()">Transfer</button>
+			 <div class="style-container pt-15">
+					 <button class="button button-border black download-btn"><i class="fa fa-download"></i></button>
+<!--				<button class="button btn-block mb-10" onclick="onPredictClick1()">Transfer</button>-->
 			</div>
             </div>
             
             
-            <div class="tab-pane fade" id="result3" role="tabpanel" aria-labelledby="webcam-tab">
+            <div class="tab-pane fade border" id="result3" role="tabpanel" aria-labelledby="webcam-tab">
 			<div id="output-img-container2"></div>
-			 <div class="style-container">
-				<button class="button btn-block mb-10" onclick="onPredictClick()">Transfer</button>
+			 <div class="style-container pt-15">
+			 		<button class="button button-border black download-btn"><i class="fa fa-download"></i></button>
+<!--				<button class="button btn-block mb-10" onclick="onPredictClick2()">Transfer</button>-->
+
 			</div>
           </div> 
       </div>
      
     </div>
     
-<!--
-  <div class="output-container col-lg-4 col-md-12">
-        <div class="pt-20 pb-20">
-         <button type="button" class="button btn-circle mr-10 disable">3</button>
-         Result
-     </div>
-     <div class="border pd-20 min-h-320">
-       
 
-             <button type="button" class="button btn-lg" data-toggle="modal" data-target="#myModal">
-              <div id="output-img-container"></div>
-            </button>
-     
-         <div class="style-container">
-        
-         	<button class="button btn-block mb-10" onclick="onPredictClick()">Transfer</button>
-
-        </div>
-  
-    </div>
-  </div>
--->
-   
-<!--
-    <div class="output-container col-lg-4 col-md-12">
-     <div class="border mt-90 pd-20 min-h-320">
-      <div id="output-img-container1"></div>
-         <div class="style-container">
-         <div class="row">
-         	<div class="col-lg-6"><button class="button btn-block mb-10" onclick="onPredictClick()">Transfer</button></div>
-         	<div class="col-lg-6"><button class="button btn-block" data-toggle="modal" data-target="#myModal1">Download</button></div>
-         </div>
-        </div>
-        
-            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" >
-              <div class="modal-dialog" role="document">
-                <div id="modal-content" class="modal-content pt-20 text-center">
-					<div id="output-img-container1-download"></div>
-                 
-                  <div class="modal-footer">
-                    <button type="button" class="button gray" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-        
-    </div>
-  </div>
-   
-  <div class="output-container col-lg-4 col-md-12">
-     <div class="border mt-90 pd-20 min-h-320">
-      <div id="output-img-container2"></div>
-         <div class="style-container">
-         <div class="row">
-         	<div class="col-lg-6"><button class="button btn-block mb-10" onclick="onPredictClick()">Transfer</button></div>
-         	<div class="col-lg-6"><button class="button btn-block" data-toggle="modal" data-target="#myModal2">Download</button></div>
-         </div>
-        </div>
-        
-            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" >
-              <div class="modal-dialog" role="document">
-                <div id="modal-content" class="modal-content pt-20 text-center">
-					<div id="output-img-container2-download"></div>
-                 
-                  <div class="modal-footer">
-                    <button type="button" class="button gray" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-    </div>
-  </div>
-    
--->
     
     </div>
+<!--
          <div class="row mt-10">             
      	<div class="col-lg-12 mt-20 tx-10">
             <h6>PHOTO ATTRIBUTION</h6>
@@ -455,6 +499,7 @@ img {
      	</div>
      	
      </div>
+-->
  </div>            
  </section>
 
@@ -631,6 +676,7 @@ img {
 //	}
 //	
 //});
+	
 </script>
 </body>
 </html>
