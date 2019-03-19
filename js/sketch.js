@@ -42,8 +42,8 @@ function modelLoaded() {
     console.log("input source:"+input_source);
     if (input_source==1) inputImg = select('#input-img1');
     else inputImg = select('#input-img');
-    inputImg.elt.style.width = '480px';
-    inputImg.elt.style.height = '480px';
+    inputImg.elt.style.width = '540px';
+    inputImg.elt.style.height = '540px';
     console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
     
     var d = new Date();
@@ -55,6 +55,7 @@ function modelLoaded() {
         var t2 = d2.getTime();
         console.log("inference time = " + (t2 - t1) + "ms");
     });
+
     inputImg.elt.style.width = '360px';
     inputImg.elt.style.height = '250px';
 }
