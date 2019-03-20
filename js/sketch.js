@@ -55,7 +55,6 @@ function modelLoaded() {
         var t2 = d2.getTime();
         console.log("inference time = " + (t2 - t1) + "ms");
     });
-
     inputImg.elt.style.width = '360px';
     inputImg.elt.style.height = '250px';
 }
@@ -205,4 +204,12 @@ function onPredictClick2() {
   }
 }
 
-
+function saveimgas() {
+  var imgOrUrl;
+  imgOrUrl = outputImgContainer.elt;
+  console.log(imgOrUrl);
+  if (typeof imgOrUrl == 'object')
+     imgOrUrl = outputImgContainer.elt.src;
+  console.log(imgOrUrl);
+  window.location.href=imgOrUrl.replace("image/png","image/octet-stream");
+}
