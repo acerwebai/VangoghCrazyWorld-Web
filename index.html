@@ -25,7 +25,7 @@
 	<!-- Responsive -->
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<link rel="stylesheet" type="text/css" href="css/new.css" />
-	<link rel="stylesheet" type="text/css" href="css/style_transfer_style.css" />
+	<link rel="stylesheet" type="text/css" href="css/vangogh.css" />
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
@@ -65,7 +65,7 @@
  header -->
 
 
-		<section class="page-title pt-110 pb-30 bg-overlay-black-60 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(images/blog/big/grid_draws.png);">
+		<section class="page-title pt-50 pb-10 bg-overlay-black-60 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(images/banner.png);">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -91,7 +91,7 @@
 										<a class="button x-small" href="https://github.com/acerwebai/VangoghCrazyWorld-Android" target="_blank"> <i class="fa fa-android"></i> </a>
 									</li>
 									<li>
-										<a class="button x-small ncs" href="https://github.com/acerwebai/VangoghCrazyWorld-NCS" target="_blank"> <img src="images/ncs.svg" class="svg"/> </a>
+										<a class="button x-small ncs" href="https://github.com/acerwebai/VangoghCrazyWorld-NCS" target="_blank"> <img src="images/icon_AIot.svg" class="svg"/> </a>
 									</li>
 									<li>
 
@@ -114,7 +114,7 @@
 				<div class="row">
 
 					<div id="learning-container" class="col-lg-4 col-md-12">
-						<div class="pt-50 pb-30">
+						<div class="pt-30 pb-10">
 							<button type="button" class="button btn-circle mr-10 disable">1</button> Choose style
 						</div>
 						<!--     <div class="mg-250"></div>-->
@@ -134,10 +134,16 @@
 										<!--    		data-toggle="tooltip" data-placement="top" title="The starry night"-->
 									</li>
 									<li>
-										<img class="image" id="Red-Vineyards" src='images/Red-Vineyards.jpg' alt="The Red Vineyard" onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" />
+										<img class="image" id="self-portrait" src='images/self-portrait.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Self-Portrait" />
 									</li>
 									<li>
-										<img class="image" id="Wheatfield_with_Crows" src='images/Wheatfield_with_Crows.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Wheatfield with Crows" />
+										<img class="image" id="bedroom" src='images/bedroom.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Vincent`s Bedroom in Arles" />
+									</li>
+									<li>
+										<img class="image" id="Sunflowers-Bew" src='images/Sunflowers-Bew.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="“Sunflowers” (1889)" />
+									</li>
+									<li>
+										<img class="image" id="Red-Vineyards" src='images/Red-Vineyards.jpg' alt="The Red Vineyard" onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" />
 									</li>
 									<li>
 										<img class="image" id="sien_with_a_cigar" src='images/sien_with_a_cigar.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Sien with a cigar" />
@@ -146,17 +152,12 @@
 										<img class="image" id="Soup-Distribution" src='images/Soup-Distribution.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Soup Distribution in a Public Soup Kitchen" />
 									</li>
 									<li>
-										<img class="image" id="self-portrait" src='images/self-portrait.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Self-Portrait" />
+										<img class="image" id="Wheatfield_with_Crows" src='images/Wheatfield_with_Crows.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Wheatfield with Crows" />
 									</li>
 									<li>
 										<img class="image" id="la-campesinos" src='images/la-campesinos.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Rest from Work" />
 									</li>
-									<li>
-										<img class="image" id="bedroom" src='images/bedroom.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="Vincent`s Bedroom in Arles" />
-									</li>
-									<li>
-										<img class="image" id="Sunflowers-Bew" src='images/Sunflowers-Bew.jpg' onclick="updateStyleImg(this); document.getElementById('style-name').innerText = this.alt;" alt="“Sunflowers” (1889)" />
-									</li>
+
 								</ul>
 							</div>
 
@@ -166,7 +167,7 @@
 
 
 					<div class="col-lg-4 col-md-12 input-container">
-						<div class="pt-50 pb-30">
+						<div class="pt-30 pb-10">
 							<button type="button" class="button btn-circle mr-10 disable">2</button> Select content
 						</div>
 						<div class="tab tab-border ">
@@ -249,14 +250,14 @@
 
 								</div>
 
-								<div class="tab-pane fade" id="upload" role="tabpanel" aria-labelledby="upload-tab">
+								<div class="tab-pane fade border" id="upload" role="tabpanel" aria-labelledby="upload-tab">
 									<div class="center-container">
 										<img id="input-img1" src='images/picture.png' />
 										<div id="input-source1" class="reverse-img"></div>
 									</div>
 									<!--                <div class="mg-200"></div>-->
 
-									<div class="style-container">
+									<div class="style-container uploadimgbtn-box">
 										<input id="uploader" name="inputImgFile" type="file" accept="image/*">
 										<div class="link" onclick="uploadImg()"><i class="fa fa-upload"></i> Upload an image</div>
 										<!--      <div class="link" onclick="useWebcam()">Use my webcam</div>-->
@@ -264,15 +265,15 @@
 								</div>
 
 
-								<div class="tab-pane fade" id="webcam" role="tabpanel" aria-labelledby="webcam-tab">
+								<div class="tab-pane fade border" id="webcam" role="tabpanel" aria-labelledby="webcam-tab">
 									<div class="center-container">
-										<img id="input-img2" src='images/taipei101.jpg' />
+										<img id="input-img2" src='images/picture.png' />
 										<div id="input-source2" class="reverse-img"></div>
 									</div>
-									<div class="style-container">
+									<div class="style-container uploadimgbtn-box">
 										<!--      <input id="uploader" name="inputImgFile" type="file" accept="image/*"> -->
 										<!--      <div class="link" onclick="uploadImg()">Upload an image</div>-->
-										<div class="link" onclick="useWebcam()">Use my webcam</div>
+										<div class="link" onclick="useWebcam()"><i class="fa fa-camera"></i> Use my webcam</div>
 									</div>
 								</div>
 
@@ -284,7 +285,7 @@
 
 
 					<div class="col-lg-4 col-md-12 input-container">
-						<div class="pt-50 pb-30">
+						<div class="pt-30 pb-10">
 							<button type="button" class="button btn-circle mr-10 disable">3</button> Stylize (Style Similar Level)
 						</div>
 						<div class="tab tab-border ">
