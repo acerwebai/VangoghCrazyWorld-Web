@@ -144,6 +144,7 @@ function useWebcam() {
     // webcam video
     video = createCapture(VIDEO);
     video.size(360, 250);
+    video.hide();
     video.parent('input-source2');
   }
   webcam = true;
