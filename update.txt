@@ -1,3 +1,7 @@
+20190401 by hoiian
+改空白區域和編號改色
+Google analysis
+
 20190320 by hoiian
 Style image position adjustment（照片都調整至滿格）
 把小圖的bar寬度調大5px（window上看不跳行）
