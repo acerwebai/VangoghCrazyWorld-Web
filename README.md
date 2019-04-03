@@ -12,8 +12,11 @@ Following describes what is the steps that we need to do step by step. Enjoy it.
  git clone the code from <a href="https://github.com/reiinakano/fast-style-transfer-deeplearnjs"> fast-style-transfer-deeplearnjs</a><br/>
  Following below instructions to convert TensorFlow checkpoint files to ML5 supported variable files.
  <pre>
- $ python scripts/dump_checkpoint_vars.py --output_dir=src/ckpts/my-new-style --checkpoint_file=/path/to/model.ckpt
- $ python scripts/remove_optimizer_variables.py --output_dir=src/ckpts/my-new-style
+ //for example, path "models" store the checkpoint file that you trained, path "ml5js" planed to store ML5 variable files.
+ //checkpoint file need use that stored in ckpts folder(full checkpoint), not tf-models(smaller one)
+ 
+ $ python scripts/dump_checkpoint_vars.py --output_dir=ml5js --checkpoint_file=models/fns.ckpt
+ $ python scripts/remove_optimizer_variables.py --output_dir=ml5js
  </pre>
  
 ## Inference performance adjustment
