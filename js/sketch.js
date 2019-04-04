@@ -112,7 +112,7 @@ function updateStyleImg(ele) {
 }
 
 function updateInputImg(ele) {
-  if (webcam) deactiveWebcam();
+  //if (webcam) deactiveWebcam();
   if (ele.src) {
     inputImg.elt.src = ele.src;
   }
