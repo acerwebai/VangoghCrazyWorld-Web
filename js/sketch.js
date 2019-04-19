@@ -120,12 +120,16 @@ function updateInputImg(ele) {
   //if (webcam) deactiveWebcam();
   if (ele.src) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     setTimeout(() => {
         inputImg.elt.src = ele.src.replace(".jpg","-1080.jpg"); //replace larger image to get high quality result
     }, 1e3);
 =======
     inputImg.elt.src = ele.src;
 >>>>>>> parent of 4e8acc0... reduce page loading time & fix issues
+=======
+    inputImg.elt.src = ele.src.replace(".jpg","-1080.jpg"); //replace larger image to get high quality result
+>>>>>>> parent of 50794fd... Update sketch.js
   }
   if (currentModel) {
     input_source=0;
