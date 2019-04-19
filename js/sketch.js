@@ -16,7 +16,6 @@ let modelReady = false;
 let video;
 let isLoading = true;
 let isSafa = false;
-let inputImgSize='540px';
 
 function setup() {
     inputImg = select('#input-img');
@@ -45,8 +44,8 @@ function modelLoaded() {
     console.log("input source:"+input_source);
     if (input_source==1) inputImg = select('#input-img1');
     else inputImg = select('#input-img');
-    inputImg.elt.style.width = inputImgSize;  //fix input image size for inferencing
-    inputImg.elt.style.height = inputImgSize;
+    inputImg.elt.style.width = '540px';  //fix input image size for inferencing
+    inputImg.elt.style.height = '540px';
     console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
     
     var d = new Date();
@@ -134,13 +133,13 @@ function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
      var newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
-     inputImg1.style.width=inputImgSize; //resize uploaded image size to fix noise result when upload a smaller image
-     inputImg1.style.height=inputImgSize;
+     inputImg1.elt.style.width='540px'; //resize uploaded image size to fix noise result when upload a smaller image
+     inputImg1.elt.style.height='540px';
      input_source=1;
      setTimeout(() => {
        if (currentModel) transferImg();
      }, 1e3);
-     console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
+     console.log("inputImg1 size:"+inputImg1.elt.style.width+" x "+inputImg1.elt.style.height);
   }
 }
 
