@@ -45,11 +45,16 @@ function modelLoaded() {
     else inputImg = select('#input-img');
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     inputImg.elt.style.width = '540px';  //fix input image size for inferencing
 =======
     inputImg.elt.style.width = '540px';
 >>>>>>> parent of 4e8acc0... reduce page loading time & fix issues
     inputImg.elt.style.height = '540px';
+=======
+    inputImg.elt.style.width = inputImgSize;  //fix input image size for inferencing
+    inputImg.elt.style.height = inputImgSize;
+>>>>>>> parent of b4c9db9... Update sketch.js
 =======
     inputImg.elt.style.width = inputImgSize;  //fix input image size for inferencing
     inputImg.elt.style.height = inputImgSize;
@@ -153,6 +158,11 @@ function gotNewInputImg() {
      var newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+     inputImg1.style.width=inputImgSize; //resize uploaded image size to fix noise result when upload a smaller image
+     inputImg1.style.height=inputImgSize;
+>>>>>>> parent of b4c9db9... Update sketch.js
 =======
      inputImg1.style.width=inputImgSize; //resize uploaded image size to fix noise result when upload a smaller image
      inputImg1.style.height=inputImgSize;
@@ -162,7 +172,11 @@ function gotNewInputImg() {
        if (currentModel) transferImg();
      }, 1e3);
 <<<<<<< HEAD
+<<<<<<< HEAD
      console.log("inputImg1 size:"+inputImg1.elt.width+" x "+inputImg1.elt.height);
+=======
+     console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
+>>>>>>> parent of b4c9db9... Update sketch.js
 =======
      console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
 >>>>>>> parent of b4c9db9... Update sketch.js
