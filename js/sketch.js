@@ -43,7 +43,7 @@ function modelLoaded() {
     if (input_source==1) inputImg = select('#input-img1');
     else inputImg = select('#input-img');
     inputImg.elt.style.width = '540px';  //fix input image size for inferencing
-    inputImg.elt.style.width = '540px';
+    inputImg.elt.style.height = '540px';
     console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
     
     var d = new Date();
