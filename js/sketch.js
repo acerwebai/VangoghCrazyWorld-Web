@@ -19,10 +19,8 @@ let isSafa = false;
 
 function setup() {
     inputImg = select('#input-img');
-    inputImg.elt.src=inputImg.elt.src.replace(".jpg","-1080.jpg"); //replace with larger image for better quality on web
     inputImg1 = select('#input-img1');
-    styleImg = select('#style-img');
-    styleImg.elt.src=styleImg.elt.src.replace(".jpg","-1080.jpg"); //replace with larger image for better quality on web
+    styleImg = select('#style-img').elt;
 
     // Image uploader
     uploader = select('#uploader').elt;
@@ -44,7 +42,11 @@ function modelLoaded() {
     console.log("input source:"+input_source);
     if (input_source==1) inputImg = select('#input-img1');
     else inputImg = select('#input-img');
+<<<<<<< HEAD
     inputImg.elt.style.width = '540px';  //fix input image size for inferencing
+=======
+    inputImg.elt.style.width = '540px';
+>>>>>>> parent of 4e8acc0... reduce page loading time & fix issues
     inputImg.elt.style.height = '540px';
     console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
     console.log("image size: "+inputImg.elt.style.width + " x " + inputImg.elt.style.height);
@@ -100,7 +102,7 @@ function draw() {
 
 function updateStyleImg(ele) {
   if (ele.src) {
-    styleImg.elt.src = ele.src.replace(".jpg","-1080.jpg"); //replace with larger image for better quality on web
+    styleImg.src = ele.src;
     currentInitModel = ele.id;
     if (model_num>0) currentModel = currentInitModel+'-'+String(model_num);
     else currentModel=currentInitModel;
@@ -117,9 +119,13 @@ function updateStyleImg(ele) {
 function updateInputImg(ele) {
   //if (webcam) deactiveWebcam();
   if (ele.src) {
+<<<<<<< HEAD
     setTimeout(() => {
         inputImg.elt.src = ele.src.replace(".jpg","-1080.jpg"); //replace larger image to get high quality result
     }, 1e3);
+=======
+    inputImg.elt.src = ele.src;
+>>>>>>> parent of 4e8acc0... reduce page loading time & fix issues
   }
   if (currentModel) {
     input_source=0;
