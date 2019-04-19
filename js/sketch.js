@@ -60,7 +60,6 @@ function modelLoaded() {
     inputImg.elt.style.height = inputImgSize;
 >>>>>>> parent of b4c9db9... Update sketch.js
     console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
-    console.log("image size: "+inputImg.elt.style.width + " x " + inputImg.elt.style.height);
     
     var d = new Date();
     var t1 = d.getTime();
