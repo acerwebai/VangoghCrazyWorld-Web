@@ -16,11 +16,14 @@ let modelReady = false;
 let video;
 let isLoading = true;
 let isSafa = false;
+let inputImgSize='540px';
 
 function setup() {
     inputImg = select('#input-img');
+    inputImg.elt.src=inputImg.elt.src.replace(".jpg","-1080.jpg"); //replace with larger image for better quality on web
     inputImg1 = select('#input-img1');
-    styleImg = select('#style-img').elt;
+    styleImg = select('#style-img');
+    styleImg.elt.src=styleImg.elt.src.replace(".jpg","-1080.jpg"); //replace with larger image for better quality on web
 
     // Image uploader
     uploader = select('#uploader').elt;
@@ -42,8 +45,8 @@ function modelLoaded() {
     console.log("input source:"+input_source);
     if (input_source==1) inputImg = select('#input-img1');
     else inputImg = select('#input-img');
-    inputImg.elt.style.width = '540px';
-    inputImg.elt.style.height = '540px';
+    inputImg.elt.style.width = inputImgSize;  //fix input image size for inferencing
+    inputImg.elt.style.height = inputImgSize;
     console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
     
     var d = new Date();
@@ -97,7 +100,7 @@ function draw() {
 
 function updateStyleImg(ele) {
   if (ele.src) {
-    styleImg.src = ele.src;
+    styleImg.elt.src = ele.src.replace(".jpg","-1080.jpg"); //replace with larger image for better quality on web
     currentInitModel = ele.id;
     if (model_num>0) currentModel = currentInitModel+'-'+String(model_num);
     else currentModel=currentInitModel;
@@ -114,7 +117,7 @@ function updateStyleImg(ele) {
 function updateInputImg(ele) {
   //if (webcam) deactiveWebcam();
   if (ele.src) {
-    inputImg.elt.src = ele.src;
+    inputImg.elt.src = ele.src.replace(".jpg","-1080.jpg"); //replace larger image to get high quality result
   }
   if (currentModel) {
     input_source=0;
@@ -131,6 +134,8 @@ function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
      var newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
+     inputImg1.style.width=inputImgSize; //resize uploaded image size to fix noise result when upload a smaller image
+     inputImg1.style.height=inputImgSize;
      input_source=1;
      setTimeout(() => {
        if (currentModel) transferImg();
