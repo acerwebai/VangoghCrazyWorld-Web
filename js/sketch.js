@@ -16,7 +16,6 @@ let modelReady = false;
 let video;
 let isLoading = true;
 let isSafa = false;
-let inputImgSize='540px';
 
 function setup() {
     inputImg = select('#input-img');
@@ -43,22 +42,8 @@ function modelLoaded() {
     console.log("input source:"+input_source);
     if (input_source==1) inputImg = select('#input-img1');
     else inputImg = select('#input-img');
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     inputImg.elt.style.width = '540px';  //fix input image size for inferencing
-=======
     inputImg.elt.style.width = '540px';
->>>>>>> parent of 4e8acc0... reduce page loading time & fix issues
-    inputImg.elt.style.height = '540px';
-=======
-    inputImg.elt.style.width = inputImgSize;  //fix input image size for inferencing
-    inputImg.elt.style.height = inputImgSize;
->>>>>>> parent of b4c9db9... Update sketch.js
-=======
-    inputImg.elt.style.width = inputImgSize;  //fix input image size for inferencing
-    inputImg.elt.style.height = inputImgSize;
->>>>>>> parent of b4c9db9... Update sketch.js
     console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
     
     var d = new Date();
@@ -129,17 +114,7 @@ function updateStyleImg(ele) {
 function updateInputImg(ele) {
   //if (webcam) deactiveWebcam();
   if (ele.src) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    setTimeout(() => {
-        inputImg.elt.src = ele.src.replace(".jpg","-1080.jpg"); //replace larger image to get high quality result
-    }, 1e3);
-=======
     inputImg.elt.src = ele.src;
->>>>>>> parent of 4e8acc0... reduce page loading time & fix issues
-=======
-    inputImg.elt.src = ele.src.replace(".jpg","-1080.jpg"); //replace larger image to get high quality result
->>>>>>> parent of 50794fd... Update sketch.js
   }
   if (currentModel) {
     input_source=0;
@@ -156,29 +131,11 @@ function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
      var newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-     inputImg1.style.width=inputImgSize; //resize uploaded image size to fix noise result when upload a smaller image
-     inputImg1.style.height=inputImgSize;
->>>>>>> parent of b4c9db9... Update sketch.js
-=======
-     inputImg1.style.width=inputImgSize; //resize uploaded image size to fix noise result when upload a smaller image
-     inputImg1.style.height=inputImgSize;
->>>>>>> parent of b4c9db9... Update sketch.js
      input_source=1;
      setTimeout(() => {
        if (currentModel) transferImg();
      }, 1e3);
-<<<<<<< HEAD
-<<<<<<< HEAD
-     console.log("inputImg1 size:"+inputImg1.elt.width+" x "+inputImg1.elt.height);
-=======
      console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
->>>>>>> parent of b4c9db9... Update sketch.js
-=======
-     console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
->>>>>>> parent of b4c9db9... Update sketch.js
   }
 }
 
