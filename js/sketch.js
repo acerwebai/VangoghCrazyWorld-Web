@@ -134,8 +134,8 @@ function gotNewInputImg() {
   if (uploader.files && uploader.files[0]) {
      var newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
-     inputImg1.elt.style.width='540px'; //resize uploaded image size to fix noise result when upload a smaller image
-     inputImg1.elt.style.height='540px';
+     //inputImg1.elt.style.width='540px'; //resize uploaded image size to fix noise result when upload a smaller image
+     //inputImg1.elt.style.height='540px';
      input_source=1;
      setTimeout(() => {
        if (currentModel) transferImg();
