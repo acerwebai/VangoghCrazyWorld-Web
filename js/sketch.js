@@ -117,7 +117,9 @@ function updateStyleImg(ele) {
 function updateInputImg(ele) {
   //if (webcam) deactiveWebcam();
   if (ele.src) {
-    inputImg.elt.src = ele.src.replace(".jpg","-1080.jpg"); //replace larger image to get high quality result
+    setTimeout(() => {
+        inputImg.elt.src = ele.src.replace(".jpg","-1080.jpg"); //replace larger image to get high quality result
+    }, 1e3);
   }
   if (currentModel) {
     input_source=0;
