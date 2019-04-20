@@ -31,7 +31,7 @@ function setup() {
     outputImgContainer = createImg('images/loading.gif', 'image');
     outputImgContainer.parent('output-img-container');
 
-    console.log('after load models-3');
+    //console.log('after load models-3');
     transferImg();
 }
 
@@ -39,17 +39,17 @@ function setup() {
 function modelLoaded() {
     modelReady = true;
     outputImgContainer.removeClass('reverse-img');
-    console.log("input source:"+input_source);
+    //console.log("input source:"+input_source);
     if (input_source==1) inputImg = select('#input-img1');
     else inputImg = select('#input-img');
     inputImg.elt.style.width = '540px';  //fix input image size for inferencing
     inputImg.elt.style.height = '540px';
-    console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
+    //console.log("image source:"+inputImg.elt.src + " ; model_num :" +model_num);
     
     var d = new Date();
     var t1 = d.getTime();
     nets.transfer(inputImg.elt, function (err, result) {
-        console.log('result:'+result + 'err:'+err);
+        //console.log('result:'+result + 'err:'+err);
         outputImgContainer.elt.src = result.src;
         var d2 = new Date();
         var t2 = d2.getTime();
@@ -77,7 +77,7 @@ function gotResult(err, img) {
     if (webcam) {
         var d = new Date();
         var t1 = d.getTime();
-        console.log(" in gotResult");
+        //console.log(" in gotResult");
         outputImgContainer.elt.src = img.src;
         nets1.transfer(gotResult);
         var d2 = new Date();
@@ -132,10 +132,10 @@ function gotNewInputImg() {
      var newImgUrl = window.URL.createObjectURL(uploader.files[0]);
      inputImg1.elt.src = newImgUrl;
      input_source=1;
-     setTimeout(() => {
-       if (currentModel) transferImg();
-     }, 1e3);
-     console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
+     //setTimeout(() => {
+     if (currentModel) transferImg();
+     //}, 1e3);
+     //console.log("inputImg1 size:"+inputImg1.elt.width+"x"+inputImg1.elt.height);
   }
 }
 
@@ -168,10 +168,10 @@ function onPredictClick() {
   model_num=0;
   outputImgContainer.parent('output-img-container');
     if (webcam) {
-        console.log('onpredictclick: video');
+        //console.log('onpredictclick: video');
         transferVideo();
     } else {
-        console.log('onpredictclick: img');
+        //console.log('onpredictclick: img');
         transferImg();
         //console.log('onpredictclick: img');
     }
@@ -182,10 +182,10 @@ function onPredictClick1() {
   model_num=1;
   outputImgContainer.parent('output-img-container1');
   if (webcam) {
-      console.log('onpredictclick1: video');
+      //console.log('onpredictclick1: video');
       transferVideo();
   } else {
-      console.log('onpredictclick1: img');
+      //console.log('onpredictclick1: img');
       transferImg();
       //console.log('onpredictclick: img');
   }
@@ -196,10 +196,10 @@ function onPredictClick2() {
   model_num=2;
   outputImgContainer.parent('output-img-container2');
   if (webcam) {
-      console.log('onpredictclick2: video');
+      //console.log('onpredictclick2: video');
       transferVideo();
   } else {
-      console.log('onpredictclick2: img');
+      //console.log('onpredictclick2: img');
       transferImg();
       //console.log('onpredictclick: img');
   }
