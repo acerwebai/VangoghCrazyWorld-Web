@@ -55,7 +55,7 @@ function modelLoaded() {
         var t2 = d2.getTime();
         console.log("inference time = " + (t2 - t1) + "ms");
     });
-    inputImg.elt.style.width = '360px';
+    inputImg.elt.style.width = '100%';
     inputImg.elt.style.height = '250px';
 }
 
